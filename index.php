@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V-Store</title>
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="shortcut icon" href="/assets/ikon/icon.jpg" type="jpg/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="/assets/img/ikon/icon.jpg" type="jpg/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-[#fff5e8]">
@@ -15,7 +15,7 @@
                 <h1 class="text-[#fff5e8] font-bold text-lg">BASO & MIE AYAM MAKMUR</h1>
             </div>
             <div class="absolute right-0 top-0 m-3">
-                <a href="/src/cart.html">
+                <a href="pages/cart.php">
                     <svg class="saturate-0 brightness-110 hover:saturate-100 hover:brightness-95 transition-all duration-300 ease-in-out cursor-pointer" width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#f7f700">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
@@ -30,22 +30,22 @@
 
     <div>
         <div class="flex justify-center m-4">
-            <img src="/assets/gambar_produk/banner.png" class="rounded-xl w-[98vw] h-auto"></img>
+            <img src="assets/img/gambar_produk/banner.png" class="rounded-xl w-[98vw] h-auto"></img>
         </div>
         <div class="flex flex-wrap justify-evenly mb-4">
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/ikon/sale.svg" alt=""></div>
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/ikon/vocer.svg" alt=""></div>
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/ikon/best.svg" alt=""></div>
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/ikon/service.svg" alt=""></div>
+            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/img/ikon/sale.svg" alt=""></div>
+            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/img/ikon/vocer.svg" alt=""></div>
+            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/img/ikon/best.svg" alt=""></div>
+            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="/assets/img/ikon/service.svg" alt=""></div>
         </div>
     </div>
 
-    <div>
+    <>
         <div class="flex flex-wrap gap-2 justify-evenly m-2 ">
             <div>
                 <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                     <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                        <img src="/assets/gambar_produk/baso-ori.png" alt="">
+                        <img src="assets/img/gambar_produk/baso-ori.png" alt="">
                     </div>
                     <div class="select-none">
                         <p class="mx-2 mt-3">Bakso Original</p>
@@ -60,7 +60,7 @@
                 </div>
                 <!-- <div class="sticky bottom-0 h-auto">
                     <div class="h-full w-full bg-white rounded-xl overflow-hidden">
-                        <img src="/assets/gambar_produk/baso-ori.png" alt="">
+                        <img src="assets/img/gambar_produk/baso-ori.png" alt="">
                     </div>
                     <div>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum voluptate delectus consequuntur voluptates id tempora, doloremque eligendi tempore consectetur quis fugit, ullam, obcaecati cupiditate voluptas aperiam fugiat a architecto. Dignissimos, voluptatem culpa, alias consequuntur repellat modi assumenda expedita quidem quos ex necessitatibus? Molestiae sunt officiis corporis neque tempore pariatur quasi, blanditiis ut qui omnis ea eius fugiat minus aperiam iure iste sint beatae ducimus voluptatem aliquid id quo ex commodi! Tempore porro dignissimos quos pariatur praesentium quis rerum minus est laboriosam aliquid nam consequatur ad labore totam adipisci repudiandae expedita nesciunt eos nulla omnis magni, distinctio deleniti! Sequi, autem ex.
@@ -69,7 +69,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/baso-urat.png" alt="">
+                    <img src="assets/img/gambar_produk/baso-urat.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Bakso Urat</p>
@@ -84,7 +84,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/baso-mercon.png" alt="">
+                    <img src="assets/img/gambar_produk/baso-mercon.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Bakso Mercon</p>
@@ -99,7 +99,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/baso-beranak.png" alt="">
+                    <img src="assets/img/gambar_produk/baso-beranak.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Bakso Beranak</p>
@@ -114,7 +114,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/baso-iga.png" alt="">
+                    <img src="assets/img/gambar_produk/baso-iga.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Bakso Iga Sapi</p>
@@ -129,7 +129,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/mie-ayam.png" alt="">
+                    <img src="assets/img/gambar_produk/mie-ayam.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Mie Ayam</p>
@@ -144,7 +144,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/mie-ayam-ceker.png" alt="">
+                    <img src="assets/img/gambar_produk/mie-ayam-ceker.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Mie Ayam Ceker</p>
@@ -159,7 +159,7 @@
             </div>
             <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
-                    <img src="/assets/gambar_produk/mie-ayam-baso.png" alt="">
+                    <img src="assets/img/gambar_produk/mie-ayam-baso.png" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3">Mie Ayam Baso</p>
@@ -175,8 +175,6 @@
             
             
         </div>
-        <div class="flex justify-center">
-            <p class="my-6 text-sm text-[#7d8b7e]">anda telah mencapai akhir</p>
-        </div>
+        <?php include 'src/copyright.html'; ?>
 </body>
 </html>
