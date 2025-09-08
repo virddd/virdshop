@@ -4,91 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V-Store</title>
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="shortcut icon" href="/assets/img/ikon/icon.jpg" type="jpg/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon"> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="min-h-screen bg-[#fff5e8]">
+<body class="min-h-[120vh] relative bg-[#fff5e8]">
     <nav class="sticky top-0 shadow-lg/20 z-10">
         <div class="relative h-13 w-full bg-[#f64301]">
             <div class="flex items-center h-full mx-4">
                 <h1 class="text-[#fff5e8] font-bold text-lg">KERANJANG</h1>
             </div>
-            <div class="absolute right-0 top-0 mx-2">
+            <div class="absolute right-0 top-0 m-3">
                 <a href="../index.php">
-                    <svg class="scale-70 saturate-0 hover:saturate-100 brightness-150 hover:brightness-100 transition-all duration-300 ease-in-out" viewBox="0 -9 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#ffd500"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Store</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Store" sketch:type="MSLayerGroup" transform="translate(1.000000, 1.000000)" stroke="#ffd500" stroke-width="2"> <path d="M52.9,0 L8.1,0 C6.9,0 6,2 6,2 C6,2 -0.6,15.9 0.4,16.1 C1.6,19 4.7,21.1 8.2,21.1 C11.7,21.1 14.5,19 15.8,16.1 L15.8,16.1 C17.1,19 19.9,21.1 23.4,21.1 C26.9,21.1 29.8,19 31.1,16.1 L31.1,16.1 C32.3,19 35.2,21.1 38.8,21.1 C42.3,21.1 45.1,19 46.4,16.1 L46.4,16.1 C47.6,19 50.5,21.1 54,21.1 C57.6,21.1 60.6,19 61.8,16.1 C62.7,15.9 55.1,2 55.1,2 C55.1,2 54.1,0 52.9,0 L52.9,0 Z" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M55.9,21.1 L55.9,42 C55.9,43.1 55,44 53.9,44 L8,44 C6.9,44 6,43.1 6,42 L6,21.1" id="Shape" sketch:type="MSShapeGroup"> </path> <rect id="Rectangle-path" sketch:type="MSShapeGroup" x="10" y="25" width="24.9" height="12.9"> </rect> <rect id="Rectangle-path" sketch:type="MSShapeGroup" x="39" y="24" width="12.9" height="19.9"> </rect> <path d="M15.7,16.1 L19.1,0" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M30.9,16.1 L30.9,0" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M46.3,16 L41.7,0.3" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M18.1,25.1 L18.1,38" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M27,25.1 L27,38" id="Shape" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                    <svg class="opacity-100 transform -translate-y-113" width="50px" height="50px" viewBox="0 -0.5 25 25" fill="" xmlns="http://www.w3.org/2000/svg"><path d="M10.9426 8.674C10.9426 8.25979 10.6068 7.924 10.1926 7.924C9.77842 7.924 9.44263 8.25979 9.44263 8.674H10.9426ZM15.5566 8.674C15.5566 8.25979 15.2208 7.924 14.8066 7.924C14.3924 7.924 14.0566 8.25979 14.0566 8.674H15.5566ZM9.44274 8.66112C9.43563 9.07527 9.76559 9.41677 10.1797 9.42389C10.5939 9.43101 10.9354 9.10104 10.9425 8.68688L9.44274 8.66112ZM10.9525 8.10488C10.9596 7.69073 10.6297 7.34923 10.2155 7.34211C9.80136 7.33499 9.45986 7.66496 9.45274 8.07912L10.9525 8.10488ZM10.9201 8.85645C11.0209 8.45468 10.7769 8.04729 10.3751 7.94653C9.97331 7.84577 9.56593 8.08978 9.46516 8.49155L10.9201 8.85645ZM10.0356 9.3L10.7613 9.48948L10.7631 9.48245L10.0356 9.3ZM8.60872 10.8759L8.8691 11.5792H8.8691L8.60872 10.8759ZM6.927 9.99268C6.58662 9.75665 6.11934 9.84124 5.88331 10.1816C5.64728 10.522 5.73187 10.9893 6.07226 11.2253L6.927 9.99268ZM7.24959 10.6167C7.25384 10.2025 6.92151 9.86328 6.50732 9.85904C6.09312 9.85479 5.75392 10.1871 5.74967 10.6013L7.24959 10.6167ZM6.44463 15.976L7.19458 15.985L7.19459 15.9837L6.44463 15.976ZM7.02186 17.4058L6.48838 17.9329H6.48838L7.02186 17.4058ZM8.44463 18V17.25H8.44458L8.44463 18ZM10.4996 18.75C10.9138 18.75 11.2496 18.4142 11.2496 18C11.2496 17.5858 10.9138 17.25 10.4996 17.25V18.75ZM6.07039 11.224C6.41006 11.4611 6.87759 11.3779 7.11465 11.0382C7.35172 10.6986 7.26854 10.231 6.92887 9.99398L6.07039 11.224ZM5.57863 8.092L4.87557 7.83085C4.86723 7.85329 4.85997 7.87612 4.85382 7.89926L5.57863 8.092ZM6.41363 5.844L7.1167 6.10515C7.12393 6.08569 7.13034 6.06594 7.13593 6.04594L6.41363 5.844ZM7.52263 5V4.25L7.52046 4.25L7.52263 5ZM17.4756 5L17.4778 4.25H17.4756V5ZM18.5846 5.844L17.8623 6.04595C17.8679 6.0659 17.8743 6.08562 17.8815 6.10505L18.5846 5.844ZM19.4196 8.093L20.1445 7.90034C20.1383 7.87721 20.1311 7.85439 20.1227 7.83195L19.4196 8.093ZM18.0701 9.99422C17.7305 10.2315 17.6476 10.699 17.8848 11.0386C18.1221 11.3781 18.5897 11.461 18.9292 11.2238L18.0701 9.99422ZM9.74963 18C9.74963 18.4142 10.0854 18.75 10.4996 18.75C10.9138 18.75 11.2496 18.4142 11.2496 18H9.74963ZM13.7496 18C13.7496 18.4142 14.0854 18.75 14.4996 18.75C14.9138 18.75 15.2496 18.4142 15.2496 18H13.7496ZM10.4996 17.25C10.0854 17.25 9.74963 17.5858 9.74963 18C9.74963 18.4142 10.0854 18.75 10.4996 18.75V17.25ZM14.4996 18.75C14.9138 18.75 15.2496 18.4142 15.2496 18C15.2496 17.5858 14.9138 17.25 14.4996 17.25V18.75ZM14.0567 8.68302C14.0617 9.0972 14.4015 9.42893 14.8157 9.42395C15.2298 9.41896 15.5616 9.07916 15.5566 8.66498L14.0567 8.68302ZM15.5496 8.08298C15.5446 7.6688 15.2048 7.33707 14.7906 7.34205C14.3764 7.34704 14.0447 7.68684 14.0497 8.10102L15.5496 8.08298ZM15.5369 8.49073C15.4357 8.08907 15.028 7.84552 14.6264 7.94674C14.2247 8.04796 13.9811 8.45562 14.0824 8.85727L15.5369 8.49073ZM14.9666 9.297L14.2393 9.48028L14.2409 9.48622L14.9666 9.297ZM16.3915 10.8729L16.1304 11.5759L16.3915 10.8729ZM18.926 11.226C19.2667 10.9906 19.3521 10.5235 19.1167 10.1827C18.8812 9.84189 18.4141 9.7565 18.0733 9.99195L18.926 11.226ZM19.2496 10.6017C19.2456 10.1875 18.9066 9.85502 18.4924 9.85904C18.0782 9.86305 17.7457 10.2021 17.7497 10.6163L19.2496 10.6017ZM18.5516 15.976L17.8017 15.9833L17.8017 15.985L18.5516 15.976ZM17.9744 17.4058L17.4409 16.8786L17.9744 17.4058ZM16.5516 18L16.5517 17.25H16.5516V18ZM14.4996 17.25C14.0854 17.25 13.7496 17.5858 13.7496 18C13.7496 18.4142 14.0854 18.75 14.4996 18.75V17.25ZM9.44263 8.674C9.44263 10.3623 10.8113 11.731 12.4996 11.731V10.231C11.6397 10.231 10.9426 9.53391 10.9426 8.674H9.44263ZM12.4996 11.731C14.188 11.731 15.5566 10.3623 15.5566 8.674H14.0566C14.0566 9.53391 13.3595 10.231 12.4996 10.231V11.731ZM10.9425 8.68688L10.9525 8.10488L9.45274 8.07912L9.44274 8.66112L10.9425 8.68688ZM9.46516 8.49155L9.30816 9.11755L10.7631 9.48245L10.9201 8.85645L9.46516 8.49155ZM9.30996 9.11053C9.18207 9.60032 8.82307 9.9968 8.34835 10.1725L8.8691 11.5792C9.80324 11.2334 10.5097 10.4533 10.7613 9.48947L9.30996 9.11053ZM8.34835 10.1725C7.87362 10.3483 7.34299 10.2811 6.927 9.99268L6.07226 11.2253C6.89081 11.7929 7.93496 11.9251 8.8691 11.5792L8.34835 10.1725ZM5.74967 10.6013L5.69467 15.9683L7.19459 15.9837L7.24959 10.6167L5.74967 10.6013ZM5.69469 15.967C5.68586 16.702 5.9717 17.41 6.48838 17.9329L7.55535 16.8786C7.32049 16.6409 7.19057 16.3191 7.19458 15.985L5.69469 15.967ZM6.48838 17.9329C7.00507 18.4558 7.70959 18.7501 8.44469 18.75L8.44458 17.25C8.11044 17.25 7.7902 17.1163 7.55535 16.8786L6.48838 17.9329ZM8.44463 18.75H10.4996V17.25H8.44463V18.75ZM6.92887 9.99398C6.38194 9.61226 6.13204 8.92931 6.30344 8.28474L4.85382 7.89926C4.52041 9.15305 5.00651 10.4815 6.07039 11.224L6.92887 9.99398ZM6.2817 8.35315L7.1167 6.10515L5.71057 5.58285L4.87557 7.83085L6.2817 8.35315ZM7.13593 6.04594C7.18473 5.8714 7.34356 5.75052 7.5248 5.75L7.52046 4.25C6.66795 4.25247 5.92088 4.82103 5.69133 5.64206L7.13593 6.04594ZM7.52263 5.75H17.4756V4.25H7.52263V5.75ZM17.4735 5.75C17.6547 5.75052 17.8135 5.8714 17.8623 6.04595L19.3069 5.64205C19.0774 4.82103 18.3303 4.25247 17.4778 4.25L17.4735 5.75ZM17.8815 6.10505L18.7165 8.35405L20.1227 7.83195L19.2877 5.58295L17.8815 6.10505ZM18.6948 8.28566C18.866 8.92987 18.6164 9.61242 18.0701 9.99422L18.9292 11.2238C19.9921 10.4811 20.4775 9.15344 20.1445 7.90034L18.6948 8.28566ZM11.2496 18V15H9.74963V18H11.2496ZM11.2496 15C11.2496 14.8619 11.3616 14.75 11.4996 14.75V13.25C10.5331 13.25 9.74963 14.0335 9.74963 15H11.2496ZM11.4996 14.75H13.4996V13.25H11.4996V14.75ZM13.4996 14.75C13.6377 14.75 13.7496 14.8619 13.7496 15H15.2496C15.2496 14.0335 14.4661 13.25 13.4996 13.25V14.75ZM13.7496 15V18H15.2496V15H13.7496ZM10.4996 18.75H14.4996V17.25H10.4996V18.75ZM15.5566 8.66498L15.5496 8.08298L14.0497 8.10102L14.0567 8.68302L15.5566 8.66498ZM14.0824 8.85727L14.2394 9.48027L15.6939 9.11373L15.5369 8.49073L14.0824 8.85727ZM14.2409 9.48622C14.492 10.4494 15.1973 11.2294 16.1304 11.5759L16.6526 10.1698C16.1784 9.99367 15.82 9.59726 15.6924 9.10778L14.2409 9.48622ZM16.1304 11.5759C17.0635 11.9225 18.107 11.7919 18.926 11.226L18.0733 9.99195C17.6571 10.2795 17.1268 10.3459 16.6526 10.1698L16.1304 11.5759ZM17.7497 10.6163L17.8017 15.9833L19.3016 15.9687L19.2496 10.6017L17.7497 10.6163ZM17.8017 15.985C17.8057 16.3191 17.6758 16.6409 17.4409 16.8786L18.5079 17.9329C19.0246 17.41 19.3104 16.702 19.3016 15.967L17.8017 15.985ZM17.4409 16.8786C17.2061 17.1163 16.8858 17.25 16.5517 17.25L16.5516 18.75C17.2867 18.7501 17.9912 18.4558 18.5079 17.9329L17.4409 16.8786ZM16.5516 17.25H14.4996V18.75H16.5516V17.25Z" fill="#ffffff"/></svg>
+                    <svg class="brightness-100 hover:brightness-80 transition-all duration-300 ease-in-out cursor-pointer" width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"/><path fill="#ffffff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"/></svg>
                 </a>
             </div>
         </div>
     </nav>
     
-<div class="h-20 w-20 bg-indigo-700 sm:bg-sky-500 md:bg-emerald-600 lg:bg-yellow-500 xl:bg-red-600  absolute"></div>
+<div class="text-2xl text-center text-white items-center absolute">
+    <p class="absolute p-5 top-0 visible sm:invisible md:invisible lg:invisible xl:invisible bg-indigo-700">xs</p>
+    <p class="absolute p-5 top-0 invisible sm:visible md:invisible lg:invisible xl:invisible sm:bg-sky-500">sm</p>
+    <p class="absolute p-5 top-0 invisible sm:invisible md:visible lg:invisible xl:invisible md:bg-emerald-600">md</p>
+    <p class="absolute p-5 top-0 invisible sm:invisible md:invisible lg:visible xl:invisible lg:bg-amber-400">lg</p>
+    <p class="absolute p-5 top-0 invisible sm:invisible md:invisible lg:invisible xl:visible xl:bg-red-600">xl</p>
+</div>
 
     <div>
         <div class="flex flex-wrap gap-2 justify-evenly m-2 ">
             <div class="flex-cols-1">
-                <div class="flex my-2 justify-between cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
+                <div class="flex my-2 flex-wrap-reverse justify-between cursor-default bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
                     <div class="h-[180px] w-[180px] bg-white rounded-xl overflow-hidden">
-                        <img src="../assets/img/gambar_produk/baso-ori.png" alt="">
+                        <img src="../../assets/img/product_image/baso-ori.png" alt="">
                     </div>
                     <div class="flex-grow items-center justify-evenly select-none flex flex-wrap sm:divide-x-1 lg:divide-x-1 md:divide-x-1 w-48">
-                        <p class="m-4 pr-[15%] text-lg">Bakso Original</p>
-                        <p class="m-4 pr-[15%] text-lg">Rp 10.000</p>
-                        <svg class="transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer my-4 mr-3" width="30px" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#06b90f" stroke-width="1.5"/>
-                            <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#06b90f" stroke-width="1.5"/>
-                            <path d="M13 13V11M13 11V9M13 11H15M13 11H11" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
+                        <div class="flex flex-col justify-center items-center my-2 sm:pr-[4%] md:pr-[7%] lg:pr-[10%] xl:pr-[12%] ">
+                            <div class="flex justify-center text-center items-center">
+                                <p class="whitespace-nowrap font-bold text-md sm:text-lg md:text-lg lg:text-xl xl:text-xl">Bakso Original</p>
+                            </div>
+                            <div class="text-lg flex-col flex justify-center text-center items-center">
+                                <label class="w-38 text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg" for="pedas">Level pedas :</label>
+                                <select name="pedas" id="pedas" class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg mt-1 ring-1 hover:ring-2 px-2 ring-[#000] bg-[#eee5da] transition-all duration-300 ease-in-out rounded-lg hover:ring-orange-600 cursor-pointer">
+                                    <option value="lv0">level 0</option>
+                                    <option value="lv1">Level 1</option>
+                                    <option value="lv2">Level 2</option>
+                                    <option value="lv3">Level 3</option>
+                                    <option value="lv4">Level 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pr-[7%] sm:pr-[8%] md:pr-[10%] lg:pr-[11%] xl:pr-[13%]">
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                        </div>
+                        <svg class="scale-70 sm:scale-80 md:scale-90 lg:scale-100 xl:scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer p-1" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.5001 6H3.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M9.5 11L10 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.5 11L14 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#d80000" stroke-width="1.5"></path> </g>
                         </svg>
                     </div>
                 </div>
-                <div class="flex my-2 justify-between cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
+                <div class="flex my-2 flex-wrap-reverse justify-between cursor-default bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
                     <div class="h-[180px] w-[180px] bg-white rounded-xl overflow-hidden">
-                        <img src="../assets/img/gambar_produk/baso-ori.png" alt="">
+                        <img src="../../assets/img/product_image/baso-ori.png" alt="">
                     </div>
-                    <div class="flex-grow items-center justify-evenly select-none flex flex-wrap  w-48">
-                        <p class="m-4 text-lg">Bakso Original</p>
-                        <p class="m-4 text-lg">Rp 10.000</p>
-                        <svg class="transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer my-4 mr-3" width="30px" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#06b90f" stroke-width="1.5"/>
-                            <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#06b90f" stroke-width="1.5"/>
-                            <path d="M13 13V11M13 11V9M13 11H15M13 11H11" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
+                    <div class="flex-grow items-center justify-evenly select-none flex flex-wrap sm:divide-x-1 lg:divide-x-1 md:divide-x-1 w-48">
+                        <div class="flex flex-col justify-center items-center my-2 sm:pr-[4%] md:pr-[7%] lg:pr-[10%] xl:pr-[12%] ">
+                            <div class="flex justify-center text-center items-center">
+                                <p class="whitespace-nowrap font-bold text-md sm:text-lg md:text-lg lg:text-xl xl:text-xl">Bakso Original</p>
+                            </div>
+                            <div class="text-lg flex-col flex justify-center text-center items-center">
+                                <label class="w-38 text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg" for="pedas">Level pedas :</label>
+                                <select name="pedas" id="pedas" class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg mt-1 ring-1 hover:ring-2 px-2 ring-[#000] bg-[#eee5da] transition-all duration-300 ease-in-out rounded-lg hover:ring-orange-600 cursor-pointer">
+                                    <option value="lv0">level 0</option>
+                                    <option value="lv1">Level 1</option>
+                                    <option value="lv2">Level 2</option>
+                                    <option value="lv3">Level 3</option>
+                                    <option value="lv4">Level 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pr-[7%] sm:pr-[8%] md:pr-[10%] lg:pr-[11%] xl:pr-[13%]">
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                        </div>
+                        <svg class="scale-70 sm:scale-80 md:scale-90 lg:scale-100 xl:scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer p-1" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.5001 6H3.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M9.5 11L10 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.5 11L14 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#d80000" stroke-width="1.5"></path> </g>
                         </svg>
                     </div>
                 </div>
-                <div class="flex my-2 justify-between cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
+                <div class="flex my-2 flex-wrap-reverse justify-between cursor-default bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
                     <div class="h-[180px] w-[180px] bg-white rounded-xl overflow-hidden">
-                        <img src="../assets/img/gambar_produk/baso-ori.png" alt="">
+                        <img src="../../assets/img/product_image/baso-ori.png" alt="">
                     </div>
-                    <div class="flex-grow items-center justify-evenly select-none flex flex-wrap  w-48">
-                        <p class="m-4 text-lg">Bakso Original</p>
-                        <p class="m-4 text-lg">Rp 10.000</p>
-                        <svg class="transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer my-4 mr-3" width="30px" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#06b90f" stroke-width="1.5"/>
-                            <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#06b90f" stroke-width="1.5"/>
-                            <path d="M13 13V11M13 11V9M13 11H15M13 11H11" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
+                    <div class="flex-grow items-center justify-evenly select-none flex flex-wrap sm:divide-x-1 lg:divide-x-1 md:divide-x-1 w-48">
+                        <div class="flex flex-col justify-center items-center my-2 sm:pr-[4%] md:pr-[7%] lg:pr-[10%] xl:pr-[12%] ">
+                            <div class="flex justify-center text-center items-center">
+                                <p class="whitespace-nowrap font-bold text-md sm:text-lg md:text-lg lg:text-xl xl:text-xl">Bakso Original</p>
+                            </div>
+                            <div class="text-lg flex-col flex justify-center text-center items-center">
+                                <label class="w-38 text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg" for="pedas">Level pedas :</label>
+                                <select name="pedas" id="pedas" class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg mt-1 ring-1 hover:ring-2 px-2 ring-[#000] bg-[#eee5da] transition-all duration-300 ease-in-out rounded-lg hover:ring-orange-600 cursor-pointer">
+                                    <option value="lv0">level 0</option>
+                                    <option value="lv1">Level 1</option>
+                                    <option value="lv2">Level 2</option>
+                                    <option value="lv3">Level 3</option>
+                                    <option value="lv4">Level 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pr-[7%] sm:pr-[8%] md:pr-[10%] lg:pr-[11%] xl:pr-[13%]">
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                        </div>
+                        <svg class="scale-70 sm:scale-80 md:scale-90 lg:scale-100 xl:scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer p-1" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.5001 6H3.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M9.5 11L10 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.5 11L14 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#d80000" stroke-width="1.5"></path> </g>
                         </svg>
                     </div>
                 </div>
+                <div class="flex my-2 flex-wrap-reverse justify-between cursor-default bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
+                    <div class="h-[180px] w-[180px] bg-white rounded-xl overflow-hidden">
+                        <img src="../../assets/img/product_image/baso-ori.png" alt="">
+                    </div>
+                    <div class="flex-grow items-center justify-evenly select-none flex flex-wrap sm:divide-x-1 lg:divide-x-1 md:divide-x-1 w-48">
+                        <div class="flex flex-col justify-center items-center my-2 sm:pr-[4%] md:pr-[7%] lg:pr-[10%] xl:pr-[12%] ">
+                            <div class="flex justify-center text-center items-center">
+                                <p class="whitespace-nowrap font-bold text-md sm:text-lg md:text-lg lg:text-xl xl:text-xl">Bakso Original</p>
+                            </div>
+                            <div class="text-lg flex-col flex justify-center text-center items-center">
+                                <label class="w-38 text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg" for="pedas">Level pedas :</label>
+                                <select name="pedas" id="pedas" class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg mt-1 ring-1 hover:ring-2 px-2 ring-[#000] bg-[#eee5da] transition-all duration-300 ease-in-out rounded-lg hover:ring-orange-600 cursor-pointer">
+                                    <option value="lv0">level 0</option>
+                                    <option value="lv1">Level 1</option>
+                                    <option value="lv2">Level 2</option>
+                                    <option value="lv3">Level 3</option>
+                                    <option value="lv4">Level 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pr-[7%] sm:pr-[8%] md:pr-[10%] lg:pr-[11%] xl:pr-[13%]">
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                            <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg my-2">Rp 10.000</p>
+                        </div>
+                        <svg class="scale-70 sm:scale-80 md:scale-90 lg:scale-100 xl:scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer p-1" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.5001 6H3.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M9.5 11L10 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.5 11L14 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#d80000" stroke-width="1.5"></path> </g>
+                        </svg>
+                    </div>
+                </div>
+                
+               
+                
                 
             </div>
         </div>
     </div>
 
-    <footer class="sticky bottom-0 shadow-lg/20 z-10">
+    <?php include '../src/copyright.html'; ?>
+
+    <footer class="w-full bottom-0 sticky shadow-lg/20 z-10">
         <div class="relative h-13 w-full bg-[#6b0101]">
             <div class="flex items-center h-full mx-4">
                 <h1 class="text-[#fff5e8] font-bold text-lg">Pembayaran</h1>
             </div>
             <div class="absolute right-0 top-0 ">
-                <a class="bg-blue-200 m-1  mr-9" href="payment.php">
-                    <svg class="scale- transform hover:saturate-0 hover:brightness-110 transition-all duration-300 ease-in-out cursor-pointer" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 477.22"><path fill="#444B51" fill-rule="nonzero" d="M480.139 428.134l-48.31 48.31-49.421-48.048-48.46 46.515-50.713-46.826-47.724 49.135-49.099-49.104-50.178 47.765-47.721-48.199-32.245 37.137V108.133c-.27.016-.542.023-.817.023h-41.04C6.453 108.156 0 101.703 0 93.746l.054-1.235-.012-3.821C-.06 67.378-.189 40.315 12.87 21.267c4.316-6.297 9.963-11.568 17.31-15.334 8.938-4.578 18.898-5.8 28.604-5.8h288.565c21.136 0 26.277-.025 30.663-.049 62.252-.337 94.045-.511 113.413 17.36 10.685 9.856 15.959 23.608 18.394 43.818 2.122 17.58 2.181 40.301 2.181 70.71v332.827l-31.861-36.665z"/><path fill="#EFE9E5" d="M480.849 407.047l16.741 19.264V131.972c0-59.933-.216-89.472-15.904-103.947-17.718-16.347-55.171-13.481-134.337-13.481H70.678v411.767l17.148-19.746 48.704 49.19 50.154-47.743 48.705 48.707 47.307-48.707 51.07 47.154 48.707-46.749 49.188 47.82 49.188-49.19z"/><path fill="#444B51" fill-rule="nonzero" d="M169.714 330.377v-17.289c-4.181-.581-8.009-1.352-11.469-2.304l-.081-.023c-21.624-5.989-32.341-23.087-33.915-44.734a1.72 1.72 0 011.414-1.81l18.76-3.626a1.716 1.716 0 012.005 1.362l.015.103c2.021 14.019 7.543 28.84 23.271 31.76v-55.671a90.811 90.811 0 01-10.632-3.673l-.078-.033c-15.043-6.243-26.289-13.532-30.299-30.318-.84-3.502-1.261-7.185-1.261-11.049 0-26.625 17.233-41.274 42.27-44.194v-7.434c0-.947.77-1.717 1.717-1.717h11.101c.947 0 1.717.77 1.717 1.717v7.428c22.643 2.646 37.316 16.133 40.54 39.093a1.713 1.713 0 01-1.463 1.929l-19.183 2.98a1.711 1.711 0 01-1.951-1.426c-1.299-8.666-4.342-16.498-12.286-20.82-1.699-.926-3.587-1.673-5.657-2.246v50.588c4.197 1.086 7.677 2.049 10.437 2.879 17.342 5.203 29.846 15.539 33.194 34.216.514 2.845.774 5.802.774 8.844 0 19.116-9.758 36.312-27.613 44.078-5.079 2.21-10.679 3.54-16.792 3.997v17.393c0 .947-.77 1.717-1.717 1.717h-11.101c-.947 0-1.717-.77-1.717-1.717zm260.644-271.34c6.702 0 12.133 5.431 12.133 12.133 0 6.702-5.431 12.133-12.133 12.133-6.699 0-12.133-5.431-12.133-12.133 0-6.702 5.434-12.133 12.133-12.133zm-73.111 0c6.699 0 12.133 5.431 12.133 12.133 0 6.702-5.434 12.133-12.133 12.133-6.702 0-12.134-5.431-12.134-12.133 0-6.702 5.432-12.133 12.134-12.133zm-73.114 0c6.702 0 12.133 5.431 12.133 12.133 0 6.702-5.431 12.133-12.133 12.133-6.7 0-12.133-5.431-12.133-12.133 0-6.702 5.433-12.133 12.133-12.133zm-73.109 0c6.7 0 12.133 5.431 12.133 12.133 0 6.702-5.433 12.133-12.133 12.133-6.702 0-12.133-5.431-12.133-12.133 0-6.702 5.431-12.133 12.133-12.133zm-73.117 0c6.703 0 12.134 5.431 12.134 12.133 0 6.702-5.431 12.133-12.134 12.133-6.699 0-12.133-5.431-12.133-12.133 0-6.702 5.434-12.133 12.133-12.133zm304.772 140.389a7.722 7.722 0 010 15.443H271.815a7.721 7.721 0 010-15.443h170.864zm-49.416 115.06a7.722 7.722 0 010 15.442H271.815a7.721 7.721 0 010-15.442h121.448zm49.416-172.593a7.721 7.721 0 010 15.442H271.815a7.721 7.721 0 010-15.442h170.864zm-.457 115.062a7.721 7.721 0 010 15.442H271.815a7.721 7.721 0 010-15.442h170.407zm-272.508-88.91c-2.677.558-5.109 1.393-7.283 2.506-5.107 2.609-9.288 7.189-11.306 12.571-.973 2.591-1.46 5.411-1.46 8.456 0 9.262 3.74 15.995 11.645 20.259 2.389 1.287 5.19 2.409 8.404 3.359v-47.151zm14.535 125.751c2.695-.506 5.187-1.359 7.47-2.561 16.802-8.839 20.926-36.41 2.612-45.558-2.778-1.385-6.14-2.638-10.082-3.758v51.877z"/><path fill="#EFE9E5" d="M55.451 14.573v79.173h-41.04c0-19.919-1.183-47.573 10.336-64.374 6.054-8.829 15.616-14.662 30.704-14.799z"/><path fill="#D7D2CE" d="M55.451 14.822V93.73h-5.826V15.213l5.826-.391zm442.032 88.02c-.404-36.011-2.352-57.454-11.666-70.178v380.042l11.666 13.447V102.842z"/></svg>
+                <a class=" m-1 mr-9" href="payment.php">
+                    <!-- <svg class="scale- transform hover:saturate-0 hover:brightness-110 transition-all duration-300 ease-in-out cursor-pointer" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 477.22"><path fill="#444B51" fill-rule="nonzero" d="M480.139 428.134l-48.31 48.31-49.421-48.048-48.46 46.515-50.713-46.826-47.724 49.135-49.099-49.104-50.178 47.765-47.721-48.199-32.245 37.137V108.133c-.27.016-.542.023-.817.023h-41.04C6.453 108.156 0 101.703 0 93.746l.054-1.235-.012-3.821C-.06 67.378-.189 40.315 12.87 21.267c4.316-6.297 9.963-11.568 17.31-15.334 8.938-4.578 18.898-5.8 28.604-5.8h288.565c21.136 0 26.277-.025 30.663-.049 62.252-.337 94.045-.511 113.413 17.36 10.685 9.856 15.959 23.608 18.394 43.818 2.122 17.58 2.181 40.301 2.181 70.71v332.827l-31.861-36.665z"/><path fill="#EFE9E5" d="M480.849 407.047l16.741 19.264V131.972c0-59.933-.216-89.472-15.904-103.947-17.718-16.347-55.171-13.481-134.337-13.481H70.678v411.767l17.148-19.746 48.704 49.19 50.154-47.743 48.705 48.707 47.307-48.707 51.07 47.154 48.707-46.749 49.188 47.82 49.188-49.19z"/><path fill="#444B51" fill-rule="nonzero" d="M169.714 330.377v-17.289c-4.181-.581-8.009-1.352-11.469-2.304l-.081-.023c-21.624-5.989-32.341-23.087-33.915-44.734a1.72 1.72 0 011.414-1.81l18.76-3.626a1.716 1.716 0 012.005 1.362l.015.103c2.021 14.019 7.543 28.84 23.271 31.76v-55.671a90.811 90.811 0 01-10.632-3.673l-.078-.033c-15.043-6.243-26.289-13.532-30.299-30.318-.84-3.502-1.261-7.185-1.261-11.049 0-26.625 17.233-41.274 42.27-44.194v-7.434c0-.947.77-1.717 1.717-1.717h11.101c.947 0 1.717.77 1.717 1.717v7.428c22.643 2.646 37.316 16.133 40.54 39.093a1.713 1.713 0 01-1.463 1.929l-19.183 2.98a1.711 1.711 0 01-1.951-1.426c-1.299-8.666-4.342-16.498-12.286-20.82-1.699-.926-3.587-1.673-5.657-2.246v50.588c4.197 1.086 7.677 2.049 10.437 2.879 17.342 5.203 29.846 15.539 33.194 34.216.514 2.845.774 5.802.774 8.844 0 19.116-9.758 36.312-27.613 44.078-5.079 2.21-10.679 3.54-16.792 3.997v17.393c0 .947-.77 1.717-1.717 1.717h-11.101c-.947 0-1.717-.77-1.717-1.717zm260.644-271.34c6.702 0 12.133 5.431 12.133 12.133 0 6.702-5.431 12.133-12.133 12.133-6.699 0-12.133-5.431-12.133-12.133 0-6.702 5.434-12.133 12.133-12.133zm-73.111 0c6.699 0 12.133 5.431 12.133 12.133 0 6.702-5.434 12.133-12.133 12.133-6.702 0-12.134-5.431-12.134-12.133 0-6.702 5.432-12.133 12.134-12.133zm-73.114 0c6.702 0 12.133 5.431 12.133 12.133 0 6.702-5.431 12.133-12.133 12.133-6.7 0-12.133-5.431-12.133-12.133 0-6.702 5.433-12.133 12.133-12.133zm-73.109 0c6.7 0 12.133 5.431 12.133 12.133 0 6.702-5.433 12.133-12.133 12.133-6.702 0-12.133-5.431-12.133-12.133 0-6.702 5.431-12.133 12.133-12.133zm-73.117 0c6.703 0 12.134 5.431 12.134 12.133 0 6.702-5.431 12.133-12.134 12.133-6.699 0-12.133-5.431-12.133-12.133 0-6.702 5.434-12.133 12.133-12.133zm304.772 140.389a7.722 7.722 0 010 15.443H271.815a7.721 7.721 0 010-15.443h170.864zm-49.416 115.06a7.722 7.722 0 010 15.442H271.815a7.721 7.721 0 010-15.442h121.448zm49.416-172.593a7.721 7.721 0 010 15.442H271.815a7.721 7.721 0 010-15.442h170.864zm-.457 115.062a7.721 7.721 0 010 15.442H271.815a7.721 7.721 0 010-15.442h170.407zm-272.508-88.91c-2.677.558-5.109 1.393-7.283 2.506-5.107 2.609-9.288 7.189-11.306 12.571-.973 2.591-1.46 5.411-1.46 8.456 0 9.262 3.74 15.995 11.645 20.259 2.389 1.287 5.19 2.409 8.404 3.359v-47.151zm14.535 125.751c2.695-.506 5.187-1.359 7.47-2.561 16.802-8.839 20.926-36.41 2.612-45.558-2.778-1.385-6.14-2.638-10.082-3.758v51.877z"/><path fill="#EFE9E5" d="M55.451 14.573v79.173h-41.04c0-19.919-1.183-47.573 10.336-64.374 6.054-8.829 15.616-14.662 30.704-14.799z"/><path fill="#D7D2CE" d="M55.451 14.822V93.73h-5.826V15.213l5.826-.391zm442.032 88.02c-.404-36.011-2.352-57.454-11.666-70.178v380.042l11.666 13.447V102.842z"/></svg> -->
+                    Checkout
                 </a>
             </div>
         </div>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>
