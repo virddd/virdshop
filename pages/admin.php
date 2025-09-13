@@ -110,10 +110,13 @@
                 xhr.open("POST", "../service/proses_user.php", true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        alert('Berhasil keluar!');
-                        //location.reload();
-                        window.location.href = "../index.php";
+                    if (xhr.readyState === 4){
+                        if(xhr.status === 200) {
+                            alert('Berhasil keluar!');
+                            window.location.href = "../index.php";
+                        } else {
+                            alert('gagal keluar');
+                        }
                     }
                 };
 

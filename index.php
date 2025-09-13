@@ -107,11 +107,13 @@
                 xhr.open("POST", "service/proses_user.php", true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.readyState === 4){
+                    if(xhr.status === 200) {
                         alert('Produk berhasil ditambahkan ke keranjang');
                     } else {
                         alert('produk gagal ditambahkan ke keranjang');
                     }
+                };
                 };
 
                 xhr.send("id_produk=" + idProduk + "&action=add_cart");
