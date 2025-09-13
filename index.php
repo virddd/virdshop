@@ -21,13 +21,21 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-[#fff5e8]">
-    <?php include "src/test.html"; ?>
+    <?php
+        include "src/test.html"; 
+        //echo "Session Status: ";
+        //var_dump($_SESSION['id_user']); 
+    ?>
 
     <nav class="sticky top-0 shadow-lg/20 z-50">
         <div class="relative h-13 w-full bg-[#f64301]">
             <div class="flex items-center h-full mx-4">
-                <a href="pages/masuk.php"><h1 class="text-[#fff5e8] font-bold text-lg cursor-pointer hover:text-neutral-300 transition-all duration-300 underline underline-offset-3">MASUK</h1></a>
-                <!-- <h1 class="text-[#fff5e8] font-bold text-lg">BASO & MIE AYAM MAKMUR</h1> -->
+                <?php if(isset($_SESSION['id_user']) != null ) { 
+                    echo '<button onclick="logout()" ><h1 class="text-[#fff5e8] font-bold text-lg cursor-pointer hover:text-neutral-300 transition-all duration-300 underline underline-offset-3">KELUAR</h1></button>';
+                } else { 
+                    echo '<a href="pages/masuk.php"><h1 class="text-[#fff5e8] font-bold text-lg cursor-pointer hover:text-neutral-300 transition-all duration-300 underline underline-offset-3">MASUK</h1></a>';
+                } ?>
+                    <!-- <h1 class="text-[#fff5e8] font-bold text-lg">BASO & MIE AYAM MAKMUR</h1> -->
                 <!-- <svg class="scale-65" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 18.7023C18 15.6706 14.5 15 12 15C9.5 15 6 15.6706 6 18.7023M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.34315 10.3431 6 12 6C13.6569 6 15 7.34315 15 9Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>            </div> -->
             <div class="absolute right-0 top-0 m-3">
                 <a href="pages/cart.php">
@@ -74,15 +82,15 @@
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3"><?php echo($result['nama_produk']) ?></p>
-                    <p class="absolute bottom-0 m-2">Rp <?php echo($result['harga_produk']) ?></p>
-                    <a href="service/proses_user.php?idproduk=<?php echo($result['id_produk']) ?>" onclick="harusLogin()" class=" cursor-pointer absolute bottom-0 right-0 my-4 mr-3">
+                    <p class="absolute bottom-0 m-2">Rp <?php echo ($result['harga_produk']) ?></p>
+                    <button <?php if(isset($_SESSION['id_user']) != null ){echo 'onclick="tambahKeKeranjang(' . $result['id_produk'] . ')"'; } ?>  class=" cursor-pointer absolute bottom-0 right-0 my-4 mr-3">
                         <svg class="transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100" width="30px" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#06b90f" stroke-width="1.5"/>
                             <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#06b90f" stroke-width="1.5"/>
                             <path d="M13 13V11M13 11V9M13 11H15M13 11H11" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
                             <path d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-                    </a>
+                    </button>
                 </div>
             </div>
         <?php
@@ -93,13 +101,38 @@
         <?php include 'src/copyright.html'; ?>
 
         <script>
-            function harusLogin() {
-                if(isset($_SESSION['id_user'] == null)){
-                    alert("Silahkan masuk terlebih dahulu untuk menambahkan produk ke keranjang");
-                    return false;   
-                } else {
-                    return true;
+            function tambahKeKeranjang(idProduk) {
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("POST", "service/proses_user.php", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        alert('Produk berhasil ditambahkan ke keranjang');
+                    } else {
+                        alert('produk gagal ditambahkan ke keranjang');
+                    }
+                };
+
+                xhr.send("id_produk=" + idProduk + "&action=add_cart");
+            };
+
+            function logout(idUser) {
+                if(confirm('Yakin mau keluar?')){
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("POST", "service/proses_user.php", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        alert('Berhasil keluar!');
+                        location.reload();
+                    }
+                };
+
+                xhr.send("akun=" + idUser + "&action=keluar");
                 }
             }
+        </script>
 </body>
 </html>

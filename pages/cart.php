@@ -41,6 +41,7 @@
             <?php
             session_start();
             include '../service/database.php';
+            if (isset($_SESSION['id_user']) != null){
             $id_produk = null;
             $id_user = null;
             $id_user = $_SESSION['id_user'];
@@ -93,7 +94,7 @@
                                 class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg bg-[#dacfc0] rounded-md px-1 w-full text-center"><?php echo $jumlah ?></p>
                             <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg"><?php echo $jumlah_harga ?></p>
                         </div>
-                        <a href="../service/proses_user.php?hapus_keranjang=<?php echo $id_produk; ?>" onclick="return confirm('Yakin ingin menghapus produk ini dari keranjang?')">
+                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" onclick="return confirm('Yakin ingin menghapus produk ini dari keranjang?')">
                             <svg class="scale-70 sm:scale-80 md:scale-90 lg:scale-100 xl:scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer p-1"
                             width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -113,19 +114,19 @@
                                     stroke="#d80000" stroke-width="1.5"></path>
                                 </g>
                             </svg>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
 
                 <?php
-                }      
+                }}
                 ?>
 
             </div>
         </div>
     </div>
-    <p class="text-[#6e6e6e] text-center pb-10 my-[30vh]"><?php if($id_produk == null){echo 'Keranjang anda kosong.';} ?></p>
+    <p class="text-[#6e6e6e] text-center pb-10 my-[30vh]"><?php if(isset($id_produk) == null){echo 'Keranjang anda kosong.';} ?></p>
     <?php include '../src/copyright.html'; ?>
 
     <footer class="w-full bottom-0 py-2 fixed shadow-lg/20 z-10 bg-[#6b0101]">
@@ -134,6 +135,22 @@
             <a class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
         </div>
     </footer>
-    <script src="main.js"></script>
-</body>
+        <script>
+            function hapusKeranjang(idProduk) {
+                if (confirm('Yakin mau hapus produk ini dari keranjang?')) {
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("POST", "../service/proses_user.php", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        alert('Produk berhasil dihapus dari keranjang');
+                        location.reload();
+                    }
+                };
+
+                xhr.send("id_produk=" + idProduk + "&action=remove_cart");
+            }}
+        </script>
+        </body>
 </html>
