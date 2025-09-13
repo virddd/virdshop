@@ -1,13 +1,21 @@
 <?php
 include 'database.php';
 
+if (isset($_POST['registrasi'])) {
+
+        var_dump($_POST['registrasi']);
+        //var_dump($_FILES);
+
+        die();
+    }
+
 if (isset($_POST['aksi'])) {
     if ($_POST['aksi'] == 'add') {
 
-        //var_dump($_POST);
+        // var_dump($_POST);
         //var_dump($_FILES);
 
-        //die();
+        // die();
 
         $nama_produk = $_POST['nama_produk'];
         $kategori_produk = $_POST['kategori_produk'];

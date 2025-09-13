@@ -42,8 +42,10 @@
             session_start();
             include '../service/database.php';
             $id_produk = null;
-            $id_user = 1;
+            $id_user = null;
+            $id_user = $_SESSION['id_user'];
             $keranjang = mysqli_query($db, "SELECT * FROM data_keranjang WHERE id_user = $id_user");
+            
             while ($result = mysqli_fetch_array($keranjang)) {
                 $id_user = $result["id_user"];
                 $id_produk = $result["id_produk"];
@@ -123,7 +125,7 @@
             </div>
         </div>
     </div>
-    <p class="text-[#6e6e6e] text-center my-[30vh]"><?php if($id_produk == null){echo 'Keranjang anda kosong.';} ?></p>
+    <p class="text-[#6e6e6e] text-center pb-10 my-[30vh]"><?php if($id_produk == null){echo 'Keranjang anda kosong.';} ?></p>
     <?php include '../src/copyright.html'; ?>
 
     <footer class="w-full bottom-0 py-2 fixed shadow-lg/20 z-10 bg-[#6b0101]">

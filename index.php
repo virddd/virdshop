@@ -1,7 +1,7 @@
 <?php
 
-
     include 'service/database.php';
+    session_start();
 
     $query = "SELECT * FROM data_produk";
     $query2 = "SELECT * FROM data_ui";
@@ -49,10 +49,18 @@
             <img src="assets/img/ui/banner.png" class="rounded-xl w-[98vw] h-auto"></img>
         </div>
         <div class="flex flex-wrap justify-evenly mb-4">
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/sale.svg" alt=""></div>
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/vocer.svg" alt=""></div>
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/best.svg" alt=""></div>
-            <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/service.svg" alt=""></div>
+            <a href="pages/event.php?event=flash">    
+                <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/sale.svg" alt=""></div>
+            </a>  
+            <a href="pages/event.php?event=voucher">
+                <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/vocer.svg" alt=""></div>
+            </a>  
+            <a href="pages/event.php?event=best">
+                <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/best.svg" alt=""></div>
+            </a>  
+            <a href="pages/event.php?event=cs">
+                <div class="transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500  bg-[#f64301] w-20 h-20 rounded-full overflow-hidden m-2"><img src="assets/img/ui/service.svg" alt=""></div>
+            </a>  
         </div>
     </div>
 
@@ -60,14 +68,14 @@
         <?php
             while($result = mysqli_fetch_array($sql)){
         ?>
-            <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20  min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
+            <div class="relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 min-w-[180px] max-w-[190px] h-[250px] rounded-xl">
                 <div class="h-[180px] w-full bg-white rounded-xl overflow-hidden">
                     <img src="assets/img/product_image/<?php echo($result['gambar_produk']) ?>" alt="">
                 </div>
                 <div class="select-none">
                     <p class="mx-2 mt-3"><?php echo($result['nama_produk']) ?></p>
                     <p class="absolute bottom-0 m-2">Rp <?php echo($result['harga_produk']) ?></p>
-                    <a href="service/proses_user.php?idproduk=<?php echo($result['id_produk']) ?>" class=" cursor-pointer absolute bottom-0 right-0 my-4 mr-3">
+                    <a href="service/proses_user.php?idproduk=<?php echo($result['id_produk']) ?>" onclick="harusLogin()" class=" cursor-pointer absolute bottom-0 right-0 my-4 mr-3">
                         <svg class="transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100" width="30px" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#06b90f" stroke-width="1.5"/>
                             <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#06b90f" stroke-width="1.5"/>
@@ -83,5 +91,15 @@
 
         </div>
         <?php include 'src/copyright.html'; ?>
+
+        <script>
+            function harusLogin() {
+                if(isset($_SESSION['id_user'] == null)){
+                    alert("Silahkan masuk terlebih dahulu untuk menambahkan produk ke keranjang");
+                    return false;   
+                } else {
+                    return true;
+                }
+            }
 </body>
 </html>
