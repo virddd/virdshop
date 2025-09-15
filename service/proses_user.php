@@ -2,6 +2,8 @@
 
 include 'database.php';
 
+
+
 session_start();
 
 
@@ -108,13 +110,26 @@ if (isset($_POST['registrasi'])) {
 
 
 
-if ($_SESSION['id_user'] !== null) {
+if (isset($_SESSION['id_user']) != null) {
 
     if (isset($_POST['action'])) {
         if ($_POST['action'] == 'add_cart') {
 
-            $id_produk = $_POST['id_produk'];
+            // error_log('Masuk ke add_cart condition');
+            // error_log('ID Produk: ' . (isset($_POST['id_produk']) ? $_POST['id_produk'] : 'NOT SET'));
+            // error_log('Harga: ' . (isset($_POST['harga']) ? $_POST['harga'] : 'NOT SET'));
+            
+            // echo 'DEBUG: Masuk ke add_cart<br>';
+            // echo 'ID Produk: ' . $_POST['id_produk'] . '<br>';
+            // echo 'Harga: ' . $_POST['harga'] . '<br>';
+            // echo 'User ID: ' . $_SESSION['id_user'] . '<br>';
+            
+            // // Test response
+            // echo 'success';
+
             $id_user = $_SESSION['id_user'];
+            $id_produk = $_POST['id_produk'];
+            $harga = $_POST['harga'];
             $nama_user = $_SESSION['nama_user'];
 
             $query_cek_produk = mysqli_query($db, "SELECT * FROM data_produk WHERE id_produk = $id_produk");
@@ -126,31 +141,95 @@ if ($_SESSION['id_user'] !== null) {
 
 
             if (mysqli_num_rows($query_cek) > 0) {
-                mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = jumlah_pesanan + 1 WHERE id_user = $id_user AND id_produk = $id_produk");
+                mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = jumlah_pesanan + 1, jumlah_harga = jumlah_pesanan * $harga WHERE id_user = $id_user AND id_produk = $id_produk");
                 exit;
             } else {
-                $cek = mysqli_query($db, "INSERT INTO data_keranjang (id_user, nama_user, id_produk, nama_produk, jumlah_pesanan) VALUES ('$id_user', '$nama_user', '$id_produk', '$nama_produk', 1)");
+                $cek = mysqli_query($db, "INSERT INTO data_keranjang (id_user, nama_user, id_produk, nama_produk, jumlah_pesanan, jumlah_harga) VALUES ('$id_user', '$nama_user', '$id_produk', '$nama_produk', 1, $harga)");
 
             }
 
+        } else if ($_POST['action'] == 'hapus') {
+            $harga = $_POST['harga'];
+            $id_user = $_SESSION['id_user'];
+            $id_produk = $_POST['id_produk'];
+
+            $query_cek = mysqli_query($db, "SELECT jumlah_pesanan FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
+
+
+            if (mysqli_num_rows($query_cek) > 0) {
+                $del = mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = jumlah_pesanan - 1, jumlah_harga = jumlah_pesanan * $harga WHERE id_user = $id_user AND id_produk = $id_produk");
+                if($del) {
+                    mysqli_query($db, "DELETE FROM data_keranjang WHERE jumlah_pesanan < 1");
+                }
+            } else if ($query_cek <= 0){
+                $hapus = mysqli_query($db, "DELETE FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
+
+                if ($hapus) {
+                    echo "produk dihapus";
+                } else {
+                    echo mysqli_error($db);
+                }
+            }
+
+
         } else if ($_POST['action'] == 'remove_cart') {
+            $id_produk = $_POST['id_produk'];
+            $id_user = $_SESSION['id_user'];
 
-        $id_produk = $_POST['id_produk'];
-        $id_user = $_SESSION['id_user'];
+            $query_hapus = "DELETE FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk";
+            $sql_hapus = mysqli_query($db, $query_hapus);
 
-        $query_hapus = "DELETE FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk";
-        $sql_hapus = mysqli_query($db, $query_hapus);
-
-        if ($sql_hapus) {
-            echo "produk dihapus";
-        } else {
-            echo mysqli_error($db);
-        }
+            if ($sql_hapus) {
+                echo "produk dihapus";
+            } else {
+                echo mysqli_error($db);
+            }
         exit;
-    }
-    }
 
+        
+        } else if ($_POST['action'] == 'set_cart'){
+            if (isset($_POST['kuantitas']) && isset($_POST['id_produk'])){
+                $id_produk = $_POST['id_produk'];
+                $id_user = $_SESSION['id_user'];
+                $keranjang = (int) $_POST['kuantitas'];
+            
+            // echo "=== REQUEST DEBUG ===<br>";
+            // echo "Request Method: " . $_SERVER['REQUEST_METHOD'] . "<br>";
+            // echo "Content Type: " . (isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : 'NOT SET') . "<br>";
+            // echo "<br>";
+            // $id_user = $_SESSION['id_user'];
+            // $id_produk = $_POST['id_produk'];
+            // $keranjang = (int) $_POST['kuantitas'];
+
+            //echo "POST Data:<br>";
+            // if (empty($_POST)) {
+            //     echo "POST is EMPTY!<br>";
+            // } else {
+            //     echo "<pre>";
+            //     print_r($_POST);
+            //     echo "</pre>";
+            // }
+
+            $query_cek = mysqli_query($db, "SELECT jumlah_pesanan FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
+
+
+            if (mysqli_num_rows($query_cek) > 0) {
+                mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = $keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
+            } else if ($query_cek && mysqli_affected_rows($db) > 0){
+                //$hapus = mysqli_query($db, "DELETE FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
+                echo "success";
+                
+            } else {
+                echo "data tidak lengkap";
+            }
+        } exit;
+    }
+    }
 } else {
     var_dump($_SESSION['id_user']);
 }
+
+
+
+
 ?>

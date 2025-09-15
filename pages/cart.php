@@ -1,4 +1,7 @@
-
+<?php
+    session_start();
+    include '../service/database.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +42,6 @@
 
 
             <?php
-            session_start();
-            include '../service/database.php';
             if (isset($_SESSION['id_user']) != null){
             $id_produk = null;
             $id_user = null;
@@ -59,22 +60,21 @@
                 $harga_produk = "Rp " . number_format($harga, 0, ',', '.');
                 $gambar_produk = $result2["gambar_produk"];
                 $jumlah_harga = "Rp " . number_format(($harga * $jumlah), 0, ',', '.');
+
+                
             
             ?>
 
-                <div
-                    class="flex my-2 flex-wrap-reverse justify-between cursor-default bg-[#fff5e8] hover:ring-orange-600 ring-1 hover:ring-2 transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
+                <div class="flex my-2 flex-wrap-reverse justify-between cursor-default bg-[#fff5e8] hover:ring-orange-600 ring-1 hover:ring-2 transition-all duration-300 ease-in-out group shadow-lg/20 overflow-hidden w-[90vw] h-[180px] rounded-xl">
                     <div class="h-[180px] w-[180px] bg-white rounded-xl overflow-hidden">
                         <img src="../assets/img/product_image/<?php echo $gambar_produk ?>" alt="">
                     </div>
-                    <div
-                        class="flex-grow items-center justify-evenly select-none flex flex-wrap sm:divide-x-1 lg:divide-x-1 md:divide-x-1 w-48">
-                        <div
-                            class="flex flex-col justify-center items-center my-2 sm:pr-[4%] md:pr-[7%] lg:pr-[10%] xl:pr-[12%] ">
-                            <div class="flex justify-center text-center items-center">
-                                <p class="whitespace-nowrap font-bold text-md sm:text-lg md:text-lg lg:text-xl xl:text-xl"><?php echo $nama_produk ?></p>
+                    <div class="flex-grow xl:items-center lg:items-center md:items-center sm:items-center xl:justify-evenly lg:justify-evenly md:justify-evenly sm:justify-evenly justify-center select-none flex flex-wrap sm:divide-x-1 lg:divide-x-1 md:divide-x-1 w-48">
+                        <div class="xl:h-30 lg:h-30 md:h-30 sm:h-30 h-auto flex justify-center items-center mx-10 mt-2 sm:pr-[12%] md:pr-[13%] lg:pr-[14%] xl:pr-[12%] xl:mx-0 lg:mx-0 md:mx-10 sm:mx-10 border-b-[1.5px] px-[20%] sm:px-0 md:px-0 lg:px-0 xl:px-0 sm:border-b-0 md:border-b-0 lg:border-b-0 xl:border-b-0">
+                            <div class="flex relative justify-center text-center w-20 items-center">
+                                <p class="whitespace-nowrap  absolute font-bold text-md sm:text-lg md:text-lg lg:text-xl xl:text-xl"><?php echo $nama_produk ?></p>
                             </div>
-                            <div class="text-lg flex-col flex justify-center text-center items-center">
+                            <!-- <div class="text-lg flex-col flex justify-center text-center items-center">
                                 <label class="w-38 text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg"
                                     for="pedas">Level pedas :</label>
                                 <select name="pedas" id="pedas"
@@ -85,34 +85,27 @@
                                     <option value="lv3">Level 3</option>
                                     <option value="lv4">Level 4</option>
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
-                        <div
-                            class="flex flex-col justify-center items-center pr-[7%] sm:pr-[8%] md:pr-[10%] lg:pr-[11%] xl:pr-[13%]">
+                        <div class="flex flex-col xl:h-30 lg:h-30 md:h-30 sm:h-30 h-auto justify-center items-center sm:pr-[11%] md:pr-[12%] lg:pr-[13%] xl:pr-[13%]">
                             <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg"><?php echo $harga_produk ?></p>
-                            <p
-                                class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg bg-[#dacfc0] rounded-md px-1 w-full text-center"><?php echo $jumlah ?></p>
+                            <input type="hidden" name="harga" id="harga_<?php echo $id_produk ?>" value="<?php echo $harga ?>">
+                            <div class="xl:scale-100 lg:scale-95 md:scale-90 sm:scale-85 scale-80 bg-[#c3b9ab] rounded-md w-auto h-[36px] flex flex-row-reverse justify-between items-center">
+                                <button onclick="tambah1(<?php echo $id_produk ?>)" class="mb-1 hover:text-neutral-500 transition-all duration-300 rounded-r-md w-8 h-full text-3xl text-center cursor-pointer font-bold">+</button>
+                                <form id="formKuantitas_<?php echo $id_produk; ?>" onsubmit="return false;" class="bg-[#dacfc0] min-w-8">
+                                    <input  onkeypress="return handleEnter(event, <?php echo $id_produk ?>)" id="kuantitas_<?php echo $id_produk ?>" name="kuantitas" type="text" value="<?php  echo $jumlah ?>" class="w-13 text-lg text-center"></input> 
+                                    <input type="hidden" name="id_produk" id="id_produk_<?php echo $id_produk ?>" value="<?php echo $id_produk ?>">
+                                    <!-- <button hidden type="submit" onclick="setKuantitas()"></button> -->
+                                </form>
+                                <button onclick="hapus1(<?php echo $id_produk ?>)" class="mb-1 hover:text-neutral-500 transition-all duration-300 rounded-l-md w-8 h-full text-3xl text-center cursor-pointer font-bold">-</button>
+                            </div>
                             <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg"><?php echo $jumlah_harga ?></p>
                         </div>
-                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" onclick="return confirm('Yakin ingin menghapus produk ini dari keranjang?')">
-                            <svg class="scale-70 sm:scale-80 md:scale-90 lg:scale-100 xl:scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer p-1"
-                            width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M20.5001 6H3.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round">
-                                    </path>
-                                    <path
-                                    d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5"
-                                    stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path>
-                                    <path d="M9.5 11L10 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round">
-                                </path>
-                                <path d="M14.5 11L14 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round">
-                                    </path>
-                                    <path
-                                    d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6"
-                                    stroke="#d80000" stroke-width="1.5"></path>
-                                </g>
+                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" onclick="return confirm('Yakin ingin menghapus produk ini dari keranjang?')" class="">
+                            <svg class="transform scale-60 sm:scale-70 md:scale-80 lg:scale-90 xl:scale-90 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier"><path d="M20.5001 6H3.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path><path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path><path d="M9.5 11L10 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path><path d="M14.5 11L14 16" stroke="#d80000" stroke-width="1.5" stroke-linecap="round"></path><path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#d80000" stroke-width="1.5"></path></g>
                             </svg>
                         </button>
                     </div>
@@ -126,35 +119,18 @@
             </div>
         </div>
     </div>
-    <p class="text-[#6e6e6e] text-center pb-10 my-[30vh]"><?php if(isset($id_produk) == null){echo 'Keranjang anda kosong.';} ?></p>
+    <p class="text-[#6e6e6e] text-center pb-10 my-[30vh]"><?php if(isset($_SESSION['id_user']) != null){if(isset($id_produk) == null){echo 'Keranjang anda kosong.';}} else { echo 'Harap login dahulu'; } ?></p>
     <?php include '../src/copyright.html'; ?>
 
     <footer class="w-full bottom-0 py-2 fixed shadow-lg/20 z-10 bg-[#6b0101]">
         <div class="flex items-center flex-row justify-between h-13 w-full px-7">
             <h1 class="text-[#fff5e8] font-bold text-lg">Pembayaran</h1>
-            <a class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
+            <div class="flex flex-row gap-4">
+                <p class="transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg"><?php if(isset($_SESSION['id_user']) != null){ $id_user = $_SESSION['id_user']; $harga_jumlah = mysqli_query($db, "SELECT SUM(jumlah_harga) AS total_harga FROM data_keranjang WHERE id_user = $id_user"); $jumlah_baris = mysqli_fetch_assoc($harga_jumlah); $harga_total = $jumlah_baris['total_harga'] ?? 0; echo "Rp " . number_format(($harga_total), 0, ',', '.');}else{echo 'Rp. 0';}?></p>
+                <a class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
+            </div>
         </div>
     </footer>
-        <script>
-            function hapusKeranjang(idProduk) {
-                if (confirm('Yakin mau hapus produk ini dari keranjang?')) {
-                var xhr = new XMLHttpRequest();
-
-                xhr.open("POST", "../service/proses_user.php", true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4){
-                        if(xhr.status === 200) {
-                            alert('Produk berhasil dihapus dari keranjang');
-                            location.reload();
-                        } else {
-                            alert('produk gagal dihapus dari keranjang');
-                        }
-                    };
-                };
-
-                xhr.send("id_produk=" + idProduk + "&action=remove_cart");
-            }}
-        </script>
+        <script src="../assets/js/main.js"></script>
         </body>
 </html>

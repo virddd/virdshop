@@ -7,6 +7,13 @@
     $query2 = "SELECT * FROM data_ui";
     $sql = mysqli_query($db, $query);
 
+        if (isset($_SESSION['id_user']) != null){
+            $cek_id = $_SESSION['id_user'];
+            $cek_keranjang = mysqli_query($db, "SELECT COUNT(*) AS total FROM data_keranjang WHERE id_user = $cek_id");
+            $data_count = mysqli_fetch_array($cek_keranjang);
+            $_SESSION["data_keranjang"] = $data_count["total"];
+            }
+
 ?>
 
 
@@ -37,9 +44,10 @@
                 } ?>
                     <!-- <h1 class="text-[#fff5e8] font-bold text-lg">BASO & MIE AYAM MAKMUR</h1> -->
                 <!-- <svg class="scale-65" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 18.7023C18 15.6706 14.5 15 12 15C9.5 15 6 15.6706 6 18.7023M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM15 9C15 10.6569 13.6569 12 12 12C10.3431 12 9 10.6569 9 9C9 7.34315 10.3431 6 12 6C13.6569 6 15 7.34315 15 9Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>            </div> -->
-            <div class="absolute right-0 top-0 m-3">
+            <div class="absolute group right-0 top-0 m-3 cursor-pointer">
+                <p class="absolute group-hover:text-[#ffeb15] transform translate-y-[2.4px] translate-x-[8.7px] font-semibold text-xs scale-75 text-white  transition-all duration-300 ease-in-out"><?php if(isset($_SESSION['id_user']) != null){if(isset($_SESSION['data_keranjang']) != null && ($_SESSION['data_keranjang']) != 0){echo $_SESSION['data_keranjang'];}} ?></p>
                 <a href="pages/cart.php">
-                    <svg class="saturate-0 brightness-110 hover:saturate-100 hover:brightness-95 transition-all duration-300 ease-in-out cursor-pointer" width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#f7f700">
+                    <svg class="scale-115 saturate-0 brightness-110 group-hover:saturate-100 group-hover:brightness-95 transition-all duration-300 ease-in-out" width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#f7f700">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
                         <g id="SVGRepo_iconCarrier"> <path d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H13M19 15.5H17" stroke="#0" stroke-width="1.2" stroke-linecap="round"/> <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#0" stroke-width="1.2"/> <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#0" stroke-width="1.2"/> <path d="M5 6H8M5.5 13H16.0218C16.9812 13 17.4609 13 17.8366 12.7523C18.2123 12.5045 18.4013 12.0636 18.7792 11.1818L19.2078 10.1818C20.0173 8.29294 20.4221 7.34853 19.9775 6.67426C19.5328 6 18.5054 6 16.4504 6H12" stroke="#0" stroke-width="1.2" stroke-linecap="round"/> </g>
@@ -83,7 +91,8 @@
                 <div class="select-none">
                     <p class="mx-2 mt-3"><?php echo($result['nama_produk']) ?></p>
                     <p class="absolute bottom-0 m-2">Rp <?php echo ($result['harga_produk']) ?></p>
-                    <button <?php if(isset($_SESSION['id_user']) != null ){echo 'onclick="tambahKeKeranjang(' . $result['id_produk'] . ')"'; } ?>  class=" cursor-pointer absolute bottom-0 right-0 my-4 mr-3">
+                    <input type="hidden" name="harga" id="harga_<?php echo ($result['id_produk']) ?>" value="<?php echo ($result['harga_produk']) ?>">
+                    <button <?php if(isset($_SESSION['id_user']) != null ){echo 'onclick="tambahKeKeranjang(' . $result['id_produk'] . ')"'; } else {echo 'onclick="harusLogin()"';} ?>  class=" cursor-pointer absolute bottom-0 right-0 my-4 mr-3">
                         <svg class="transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100" width="30px" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#06b90f" stroke-width="1.5"/>
                             <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#06b90f" stroke-width="1.5"/>
@@ -100,41 +109,6 @@
         </div>
         <?php include 'src/copyright.html'; ?>
 
-        <script>
-            function tambahKeKeranjang(idProduk) {
-                var xhr = new XMLHttpRequest();
-
-                xhr.open("POST", "service/proses_user.php", true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4){
-                    if(xhr.status === 200) {
-                        alert('Produk berhasil ditambahkan ke keranjang');
-                    } else {
-                        alert('produk gagal ditambahkan ke keranjang');
-                    }
-                };
-                };
-
-                xhr.send("id_produk=" + idProduk + "&action=add_cart");
-            };
-
-            function logout(idUser) {
-                if(confirm('Yakin mau keluar?')){
-                var xhr = new XMLHttpRequest();
-
-                xhr.open("POST", "service/proses_user.php", true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        alert('Berhasil keluar!');
-                        location.reload();
-                    }
-                };
-
-                xhr.send("akun=" + idUser + "&action=keluar");
-                }
-            }
-        </script>
+        <script src="assets/js/main.js"></script>
 </body>
 </html>
