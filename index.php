@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- <link rel="shortcut icon" href="img/icon/favicon.ico" type="ico/x-icon"> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="bg-[#fff5e8]">
     <?php
@@ -37,8 +39,9 @@
     <nav class="sticky top-0 shadow-lg/20 z-50">
         <div class="relative h-13 w-full bg-[#f64301]">
             <div class="flex items-center h-full mx-4">
-                <?php if(isset($_SESSION['id_user']) != null ) { 
-                    echo '<button onclick="logout()" ><h1 class="text-[#fff5e8] font-bold text-lg cursor-pointer hover:text-neutral-300 transition-all duration-300 underline underline-offset-3">KELUAR</h1></button>';
+                <?php if(isset($_SESSION['id_user']) != null ) {
+                    $id_user = $_SESSION['id_user']; 
+                    echo '<button onclick="logoutUser()"><h1 class="text-[#fff5e8] font-bold text-lg cursor-pointer hover:text-neutral-300 transition-all duration-300 underline underline-offset-3">KELUAR</h1></button>';
                 } else { 
                     echo '<a href="pages/masuk.php"><h1 class="text-[#fff5e8] font-bold text-lg cursor-pointer hover:text-neutral-300 transition-all duration-300 underline underline-offset-3">MASUK</h1></a>';
                 } ?>

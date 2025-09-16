@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-[#fff5e8]">
@@ -59,10 +60,10 @@
                     <h1 class="text-white text-center my-5 text-xl font-bold">Tambah produk</h1>
                 <?php } ?>
             </div>
-            <form class="flex gap-y-8 flex-col items-center justify-center m-2" action="../service/proses.php" method="post" id="edit_produk" enctype="multipart/form-data">
+            <form class="flex gap-y-8 flex-col items-center justify-center m-2" action="../service/proses.php" method="POST" id="edit_produk" enctype="multipart/form-data">
                 <input type="hidden" name="id_produk" value="<?php echo $id_produk ?>"/>
                 <input required class="bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out" type="text" name="nama_produk" id="nama_produk" value="<?php echo $nama_produk; ?>" placeholder="Nama produk">
-                <select class="group cursor-pointer bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out" name="kategori_produk" id="kategori required">
+                <select class="group cursor-pointer bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out" name="kategori_produk" id="kategori"required>
                     <!-- <option value="" disabled selected hidden>Pilih kategori...</option>     -->
                     <option class="group-cursor-pointer" value="mie" <?php if($kategori_produk == 'mie'){echo "selected";} ?>>Mie</option>
                     <option class="group-cursor-pointer" value="baso" <?php if($kategori_produk == 'baso'){echo "selected";} ?>>Baso</option>
@@ -71,9 +72,9 @@
                 <input required class="bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out" type="number" name="harga_produk" id="harga_produk" value="<?php echo $harga_produk; ?>" placeholder="Harga">
                 <input <?php if(!isset($_GET['ubah'])){echo 'required';}?> class="bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out cursor-pointer" type="file" accept="image/*" name="gambar_produk" id="gambar_produk" placeholder="gambar">
                 <?php if(isset($_GET['ubah'])){ ?>
-                    <button class="bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="edit">Simpan</button>
+                    <button class="bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="edit" id="buttonSimpan">Simpan</button>
                 <?php } else { ?>
-                    <button class="bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="add">Tambah</button>
+                    <button class="bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="add" id="buttonTambah">Tambah</button>
                 <?php } ?>
             </form>
         </div>
@@ -94,5 +95,6 @@
         </div>
     </div>
             <?php include '../src/copyright.html'; ?>
+            <script></script>
 
 </body>

@@ -31,7 +31,7 @@ if (isset($_POST['aksi'])) {
         $sql = mysqli_query($db, $query);
 
         if ($sql) {
-            echo "<script>alert('Produk berhasil ditambahkan')</script>";
+            //echo "<script>alert('Produk berhasil ditambahkan')</script>";
             header('location: ../pages/admin.php');
         } else {
             echo mysqli_error($db);
@@ -71,16 +71,17 @@ if (isset($_POST['aksi'])) {
         }
 
         if ($sql) {
-            echo "<script>alert('Update produk berhasil')</script>";
-            header('location: ../pages/admin.php');
+            //echo "<script>alert('Update produk berhasil')</script>";
+            //header('location: ../pages/admin.php');
         } else {
             echo mysqli_error($db);
         }
     }
 }
 
-if (isset($_GET['hapus'])) {
-    $id_produk = $_GET['hapus'];
+if (isset($_POST['action'])) {
+    if ($_POST['action'] == 'hapus') {
+    $id_produk = $_POST['id_produk'];
 
     $query_show = "SELECT * FROM data_produk WHERE id_produk = $id_produk";
     $sql_show = mysqli_query($db, $query_show);
@@ -92,7 +93,7 @@ if (isset($_GET['hapus'])) {
     mysqli_query($db, $query2);
     mysqli_query($db, $query);
 
-    header('location: ../pages/admin.php');
+    // header('location: ../pages/admin.php');
 
     /*if ($sql) {
         echo "<script>alert('Berhasil menghapus produk!')</script>";
@@ -100,7 +101,7 @@ if (isset($_GET['hapus'])) {
     } else {
         echo mysqli_error($db);
     }*/
-}
+}}
 
 
 ?>

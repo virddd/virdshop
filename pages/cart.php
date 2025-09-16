@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon"> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="min-h-[120vh] relative bg-[#fff5e8]">
@@ -101,7 +102,7 @@
                             </div>
                             <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg"><?php echo $jumlah_harga ?></p>
                         </div>
-                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" onclick="return confirm('Yakin ingin menghapus produk ini dari keranjang?')" class="">
+                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" onclick="return yakin()" class="">
                             <svg class="transform scale-60 sm:scale-70 md:scale-80 lg:scale-90 xl:scale-90 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -127,10 +128,30 @@
             <h1 class="text-[#fff5e8] font-bold text-lg">Pembayaran</h1>
             <div class="flex flex-row gap-4">
                 <p class="transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg"><?php if(isset($_SESSION['id_user']) != null){ $id_user = $_SESSION['id_user']; $harga_jumlah = mysqli_query($db, "SELECT SUM(jumlah_harga) AS total_harga FROM data_keranjang WHERE id_user = $id_user"); $jumlah_baris = mysqli_fetch_assoc($harga_jumlah); $harga_total = $jumlah_baris['total_harga'] ?? 0; echo "Rp " . number_format(($harga_total), 0, ',', '.');}else{echo 'Rp. 0';}?></p>
-                <a class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
+                <a onclick="contoh()" class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
             </div>
         </div>
     </footer>
         <script src="../assets/js/main.js"></script>
+        <script>
+            function yakin(){
+                function simpan() {
+    Swal.fire({
+        title: "Do you want to save the changes?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Save",
+        denyButtonText: `Don't save`
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire("Saved!", "", "success");
+        } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+            return false;
+        }
+    });
+}
+            }
+        </script>
         </body>
 </html>
