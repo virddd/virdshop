@@ -34,7 +34,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V-Store</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon">
+    <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -51,7 +51,7 @@
     <div class="flex flex-col xl:mt-20 xl:flex-row xl:gap-x-30 items-center justify-center">
         <div class="bg-[#f64301] p-6 w-xs sm:w-sm md:w-md lg:w-md xl:w-md rounded-3xl flex flex-col items-center justify-center">
             <div class="flex justify-center items-center">
-                <img class="w-full rounded-2xl" src="../assets/img/banner/banner.png" alt="" srcset=""/>
+                <img class="w-full rounded-2xl" src="../assets/img/ui/banner.png" alt="" srcset=""/>
             </div>
             <div>
                 <?php if(isset($_GET['ubah'])){ ?>
@@ -72,9 +72,9 @@
                 <input required class="bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out" type="number" name="harga_produk" id="harga_produk" value="<?php echo $harga_produk; ?>" placeholder="Harga">
                 <input <?php if(!isset($_GET['ubah'])){echo 'required';}?> class="bg-[#fff5e8] px-4 py-2 rounded-2xl w-3xs sm:w-xs md:w-sm lg:w-sm xl:w-sm transition-all duration-300 ease-in-out cursor-pointer" type="file" accept="image/*" name="gambar_produk" id="gambar_produk" placeholder="gambar">
                 <?php if(isset($_GET['ubah'])){ ?>
-                    <button class="bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="edit" id="buttonSimpan">Simpan</button>
+                    <button class="save-button bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="edit" id="buttonSimpan">Simpan</button>
                 <?php } else { ?>
-                    <button class="bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="add" id="buttonTambah">Tambah</button>
+                    <button class="add-button bg-[#fff5e8] py-2 px-14 rounded-2xl cursor-pointer hover:bg-[#d6c3ab] focus:bg-[#d6c3ab] active:bg-[#d6c3ab] transition-all duration-300" type="submit" name="aksi" value="add" id="buttonTambah">Tambah</button>
                 <?php } ?>
             </form>
         </div>
@@ -82,7 +82,7 @@
 
         <div class="mt-10 bg-[#f64301] p-6 w-xs sm:w-sm md:w-md lg:w-md xl:w-md rounded-3xl flex flex-col items-center justify-center">
             <div class="flex justify-center items-center">
-                <img class="w-full rounded-2xl" src="../assets/img/banner/banner.png" alt="" srcset=""/>
+                <img class="w-full rounded-2xl" src="../assets/img/ui/banner.png" alt="" srcset=""/>
             </div>
             <div>
                 <h1 class="text-white text-center my-5 text-xl font-bold">Edit gambar</h1>
@@ -95,6 +95,6 @@
         </div>
     </div>
             <?php include '../src/copyright.html'; ?>
-            <script></script>
+            <script src="../assets/js/main.js"></script>
 
 </body>

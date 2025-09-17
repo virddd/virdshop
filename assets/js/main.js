@@ -1,4 +1,11 @@
-
+const swalWithTailwindButtons = Swal.mixin({
+        customClass: {
+            popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
+            confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
+            cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
+        },
+        buttonsStyling: false
+    });
 
 
 function tambahKeKeranjang(idProduk) {
@@ -218,19 +225,22 @@ function setKuantitas(produk_id) {
 
 
 function harusLogin() {
-    alert('Harap login dahulu');
+    //alert('Harap login dahulu');
+    swalWithTailwindButtons.fire({
+        title: "Login dibutuhkan",
+        //text: "Kamu mau hapus produk ini?",
+        icon: "warning",
+        background: "#fff5e8",
+        confirmButtonText: "Yaudah",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'pages/masuk.php'
+        }})
 };
 
 
 function hapusKeranjang(idProduk) {
-    const swalWithTailwindButtons = Swal.mixin({
-        customClass: {
-            popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
-            confirmButton: "bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-            cancelButton: "bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
-        },
-        buttonsStyling: false
-    });
+
     swalWithTailwindButtons.fire({
         title: "Apakah kamu yakin?",
         text: "Kamu mau hapus produk ini dari keranjang?",
@@ -277,14 +287,7 @@ function hapusKeranjang(idProduk) {
 
 
 function hapus(idProduk) {
-    const swalWithTailwindButtons = Swal.mixin({
-        customClass: {
-            popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
-            confirmButton: "bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-            cancelButton: "bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
-        },
-        buttonsStyling: false
-    });
+
     swalWithTailwindButtons.fire({
         title: "Apakah kamu yakin?",
         text: "Kamu mau hapus produk ini dari daftar produk?",
@@ -332,34 +335,27 @@ function hapus(idProduk) {
 
 
 
-document.getElementById('edit_produk').addEventListener("submit", function (e) {
-    e.preventDefault();
-    Swal.fire({
-        title: "Do you want to save the changes?",
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Save",
-        denyButtonText: `Don't save`
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire("Saved!", "", "success").then(() =>
-                this.submit());
-        } else if (result.isDenied) {
-            Swal.fire("Changes are not saved", "", "info");
-        }
-    });
-})
+// document.getElementById('edit_produk').addEventListener("submit", function (e) {
+//     e.preventDefault();
+//     Swal.fire({
+//         title: "Do you want to save the changes?",
+//         showDenyButton: true,
+//         showCancelButton: true,
+//         confirmButtonText: "Save",
+//         denyButtonText: `Don't save`
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             Swal.fire("Saved!", "", "success").then(() =>
+//                 this.submit());
+//         } else if (result.isDenied) {
+//             Swal.fire("Changes are not saved", "", "info");
+//         }
+//     });
+// })
 
 function logout() {
     // console.log('test');
-    const swalWithTailwindButtons = Swal.mixin({
-        customClass: {
-            popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
-            confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-            cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
-        },
-        buttonsStyling: false
-    });
+    
     swalWithTailwindButtons.fire({
         title: "Yakin mau keluar?",
         //text: "Kamu mau hapus produk ini?",
@@ -380,13 +376,13 @@ function logout() {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         //alert('Berhasil keluar!');
-                        
+
                     } else {
                         //alert('gagal keluar');
                     }
                 }
             };
-            
+
 
             xhr.send("akun=keluar&action=keluar");
 
@@ -400,10 +396,10 @@ function logout() {
                 if (result.isConfirmed) {
                     window.location.href = "../index.php";
                     //location.reload();
-                    }
+                }
             });
 
-            
+
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithTailwindButtons.fire({
                 background: "#fff5e8",
@@ -417,14 +413,7 @@ function logout() {
 }
 function logoutUser() {
     // console.log('test');
-    const swalWithTailwindButtons = Swal.mixin({
-        customClass: {
-            popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
-            confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-            cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
-        },
-        buttonsStyling: false
-    });
+    
     swalWithTailwindButtons.fire({
         title: "Yakin mau keluar?",
         //text: "Kamu mau hapus produk ini?",
@@ -445,13 +434,13 @@ function logoutUser() {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         //alert('Berhasil keluar!');
-                        
+
                     } else {
                         //alert('gagal keluar');
                     }
                 }
             };
-            
+
 
             xhr.send("akun=keluar&action=keluar");
 
@@ -463,10 +452,11 @@ function logoutUser() {
             }).then((result) => {
                 if (result.isConfirmed) {
                     //window.location.href = "../index.php";
-                    location.reload();}
+                    location.reload();
+                }
             });
 
-            
+
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithTailwindButtons.fire({
                 background: "#fff5e8",
@@ -479,3 +469,189 @@ function logoutUser() {
     })
 }
 
+addEventListener('click', function (e) {
+    const add_button = e.target.closest('.add-button');
+    const save_button = e.target.closest('.save-button');
+    const add_user = e.target.closest('.add-user');
+
+
+    if (add_button) {
+
+        e.preventDefault();
+        const form = add_button.closest('form');
+
+        const swalWithTailwindButtons = Swal.mixin({
+            customClass: {
+                popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
+                confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
+                cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
+            },
+            buttonsStyling: false
+        });
+
+        swalWithTailwindButtons.fire({
+            title: "Tunggu!",
+            text: "Pastikan data produk benar!",
+            icon: "warning",
+            background: "#fff5e8",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Tambahkan",
+            cancelButtonText: "Batal!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                const hidden = document.createElement('input');
+                hidden.type = 'hidden';
+                hidden.name = add_button.name;
+                hidden.value = add_button.value;
+                form.appendChild(hidden);
+
+                form.removeEventListener('submit', arguments.callee);
+                form.submit();
+            }
+        })
+    } else if (save_button) {
+
+        e.preventDefault();
+        const form = save_button.closest('form');
+
+        const swalWithTailwindButtons = Swal.mixin({
+            customClass: {
+                popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
+                confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
+                cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
+            },
+            buttonsStyling: false
+        });
+
+        swalWithTailwindButtons.fire({
+            title: "yakin?",
+            text: "Mau edit produk ini?",
+            icon: "question",
+            background: "#fff5e8",
+            showCancelButton: true,
+            confirmButtonText: "Ya, edit",
+            cancelButtonText: "Batal!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                const hidden = document.createElement('input');
+                hidden.type = 'hidden';
+                hidden.name = save_button.name;
+                hidden.value = save_button.value;
+                form.appendChild(hidden);
+
+                form.removeEventListener('submit', arguments.callee);
+                form.submit();
+            }
+        })
+    } else if (add_user) {
+
+        e.preventDefault();
+        const form = add_user.closest('form');
+
+        const swalWithTailwindButtons = Swal.mixin({
+            customClass: {
+                popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
+                confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
+                cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
+            },
+            buttonsStyling: false
+        });
+
+        swalWithTailwindButtons.fire({
+            title: "Tunggu!",
+            text: "Pastikan data diri anda benar!",
+            icon: "warning",
+            background: "#fff5e8",
+            showCancelButton: true,
+            confirmButtonText: "Ya, sudah!",
+            cancelButtonText: "Batal!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                // const hidden = document.createElement('input');
+                // hidden.type = 'hidden';
+                // hidden.name = add_user.name;
+                // hidden.value = add_user.value;
+                // form.appendChild(hidden);
+
+                form.removeEventListener('submit', arguments.callee);
+                form.submit();
+            }
+        })
+    } else {
+        return;
+    }
+})
+
+const params = new URLSearchParams(window.location.search);
+const namaUser = document.getElementById('namaUser').value;
+
+
+if (params.get("from") === "halo") {
+    Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Selamat datang " + namaUser,
+        background: "#fff5e8",
+        showConfirmButton: false,
+        timer: 2000
+    }).then(() => {
+        window.location.href = 'index.php';
+    })
+} else if (params.get("from") === "user") {
+    swalWithTailwindButtons.fire({
+        title: "Akun berhasil dibuat",
+        text: "Silahkan login ulang.",
+        icon: "success",
+        background: "#fff5e8",
+        confirmButtonText: "Ya",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'masuk.php'
+        }
+    })
+} else if (params.get("from") === "edit") {
+    
+    swalWithTailwindButtons.fire({
+        text: "Produk berhasil diedit",
+        icon: "success",
+        background: "#fff5e8",
+        confirmButtonText: "Ya",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'admin.php'
+        }
+    })
+} else if (params.get("from") === "add") {
+    
+    swalWithTailwindButtons.fire({
+        text: "Produk berhasil ditambahkan",
+        icon: "success",
+        background: "#fff5e8",
+        confirmButtonText: "Ya",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'admin.php'
+        }
+    })
+} else if (params.get("from") === "admin") {
+    
+    swalWithTailwindButtons.fire({
+        position: "top",
+        text: "Welcome Admin!!",
+        icon: "success",
+        background: "#fff5e8",
+        showConfirmButton: false,
+        timer: 2000
+    }).then(() => {
+        window.location.href = 'admin.php';
+    })
+}

@@ -1,11 +1,6 @@
 <?php
     include "../service/database.php";
 
-    if (isset($_POST["masuk"])) {
-        $username = $_POST["nama"];
-        $password = $_POST["sandi"];
-        echo $username . $password;
-    }
 ?>
 
 
@@ -16,8 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V-Store</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon">
+    <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-[#fff5e8] h-[80vh]">
@@ -53,6 +49,7 @@
         <a class="mt-5 text-sm underline text-black hover:text-orange-500 transition-all duration-300 ease-in-out" href="daftar.php">Belum punya akun? daftar disini!</a>
     </div>
             <?php include '../src/copyright.html'; ?>
+    <script src="../assets/js/main.js"></script>
         
 
 </body>

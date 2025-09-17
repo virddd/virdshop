@@ -31,9 +31,9 @@ if (isset($_POST["akun"])) {
             $_SESSION['pass_user'] = $result['pass_user'];
 
             if ($result['id_user'] == '1') {
-                header('location: ../pages/admin.php');
+                header('location: ../pages/admin.php?from=admin');
             } else {
-                header('location: ../index.php');
+                header('location: ../index.php?from=halo');
             }
         } else {
             echo "<script>alert('Nama akun atau kata sandi salah')</script>";
@@ -44,69 +44,6 @@ if (isset($_POST["akun"])) {
     }
 }
 
-
-if (isset($_POST['registrasi'])) {
-    if ($_POST['registrasi'] == 'tambah') {
-
-        $nama_user = $_POST["nama"];
-        $nama_lengkap_user = $_POST["nama_lengkap"];
-        $tahun_lahir = $_POST["ttl"];
-        $alamat_user = $_POST["alamat"];
-        $pass_user = $_POST["sandi"];
-
-
-
-        $query = "INSERT INTO data_user (nama_user, nama_lengkap_user, alamat_user, tahun_lahir_user, pass_user) VALUES ('$nama_user', '$nama_lengkap_user', '$alamat_user', '$tahun_lahir', '$pass_user')";
-        $sql = mysqli_query($db, $query);
-
-        if ($sql) {
-            header("location: ../pages/masuk.php");
-            echo "<script>alert('Registrasi berhasil')</script>";
-        } else {
-            echo mysqli_error($db);
-        }
-
-        /*} else if ($_POST['registrasi'] == 'edit') {
-
-            $id_produk = $_POST['id_produk'];
-            $nama_produk = $_POST['nama_produk'];
-            $kategori_produk = $_POST['kategori_produk'];
-            $harga_produk = $_POST['harga_produk'];
-
-            $query = "UPDATE data_produk SET nama_produk = '$nama_produk', kategori_produk = '$kategori_produk', harga_produk = '$harga_produk' WHERE id_produk = '$id_produk';";
-            $sql = mysqli_query($db, $query);
-
-            $query_show = "SELECT * FROM data_produk WHERE id_produk = $id_produk";
-            $sql_show = mysqli_query($db, $query_show);
-            $result = mysqli_fetch_assoc($sql_show);
-
-            if($_FILES['gambar_produk']['name'] == "") {
-
-                $gambar = $result['gambar_produk'];
-
-            } else {
-                $gambar = $_FILES['gambar_produk']['name'];
-                $result2 = $result["gambar_produk"];
-                unlink('../assets/img/product_image/' . $result2);
-                $dir = '../assets/img/product_image/';
-                $tmp_file = $_FILES['gambar_produk']['tmp_name'];
-                move_uploaded_file($tmp_file, $dir . $gambar);
-
-                $query = "UPDATE data_produk SET nama_produk = '$nama_produk', kategori_produk = '$kategori_produk', harga_produk = '$harga_produk', gambar_produk = '$gambar' WHERE id_produk = '$id_produk';";
-                $sql = mysqli_query($db, $query);
-            }
-
-            if ($sql) {
-                echo "<script>alert('Update produk berhasil')</script>";
-                header('location: ../pages/admin.php');
-            } else {
-                echo mysqli_error($db);
-            }
-        }*/
-
-
-    }
-}
 
 
 
@@ -226,7 +163,69 @@ if (isset($_SESSION['id_user']) != null) {
     }
     }
 } else {
-    var_dump($_SESSION['id_user']);
+    // var_dump($_SESSION['id_user']);
+    if (isset($_POST['registrasi'])) {
+    if ($_POST['registrasi'] == 'tambah') {
+
+        $nama_user = $_POST["nama"];
+        $nama_lengkap_user = $_POST["nama_lengkap"];
+        $tahun_lahir = $_POST["ttl"];
+        $alamat_user = $_POST["alamat"];
+        $pass_user = $_POST["sandi"];
+
+
+
+        $query = "INSERT INTO data_user (nama_user, nama_lengkap_user, alamat_user, tahun_lahir_user, pass_user) VALUES ('$nama_user', '$nama_lengkap_user', '$alamat_user', '$tahun_lahir', '$pass_user')";
+        $sql = mysqli_query($db, $query);
+
+        if ($sql) {
+            header("location: ../pages/masuk.php?from=user");
+            //echo "<script>alert('Registrasi berhasil')</script>";
+        } else {
+            echo mysqli_error($db);
+        }
+
+        /*} else if ($_POST['registrasi'] == 'edit') {
+
+            $id_produk = $_POST['id_produk'];
+            $nama_produk = $_POST['nama_produk'];
+            $kategori_produk = $_POST['kategori_produk'];
+            $harga_produk = $_POST['harga_produk'];
+
+            $query = "UPDATE data_produk SET nama_produk = '$nama_produk', kategori_produk = '$kategori_produk', harga_produk = '$harga_produk' WHERE id_produk = '$id_produk';";
+            $sql = mysqli_query($db, $query);
+
+            $query_show = "SELECT * FROM data_produk WHERE id_produk = $id_produk";
+            $sql_show = mysqli_query($db, $query_show);
+            $result = mysqli_fetch_assoc($sql_show);
+
+            if($_FILES['gambar_produk']['name'] == "") {
+
+                $gambar = $result['gambar_produk'];
+
+            } else {
+                $gambar = $_FILES['gambar_produk']['name'];
+                $result2 = $result["gambar_produk"];
+                unlink('../assets/img/product_image/' . $result2);
+                $dir = '../assets/img/product_image/';
+                $tmp_file = $_FILES['gambar_produk']['tmp_name'];
+                move_uploaded_file($tmp_file, $dir . $gambar);
+
+                $query = "UPDATE data_produk SET nama_produk = '$nama_produk', kategori_produk = '$kategori_produk', harga_produk = '$harga_produk', gambar_produk = '$gambar' WHERE id_produk = '$id_produk';";
+                $sql = mysqli_query($db, $query);
+            }
+
+            if ($sql) {
+                echo "<script>alert('Update produk berhasil')</script>";
+                header('location: ../pages/admin.php');
+            } else {
+                echo mysqli_error($db);
+            }
+        }*/
+
+
+    }
+}
 }
 
 

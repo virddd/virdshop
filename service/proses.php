@@ -32,7 +32,7 @@ if (isset($_POST['aksi'])) {
 
         if ($sql) {
             //echo "<script>alert('Produk berhasil ditambahkan')</script>";
-            header('location: ../pages/admin.php');
+            header('location: ../pages/admin.php?from=add');
         } else {
             echo mysqli_error($db);
         }
@@ -72,7 +72,7 @@ if (isset($_POST['aksi'])) {
 
         if ($sql) {
             //echo "<script>alert('Update produk berhasil')</script>";
-            //header('location: ../pages/admin.php');
+            header('location: ../pages/admin.php?from=edit');
         } else {
             echo mysqli_error($db);
         }

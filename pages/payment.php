@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V-Store</title>
     <link rel="stylesheet" href="src/style.css">
-    <!-- <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon"> -->
+    <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-[#fff5e8]">
     <nav class="sticky top-0 shadow-lg/20 z-10">
