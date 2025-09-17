@@ -51,6 +51,7 @@
             <div class="absolute group right-0 top-0 m-3 cursor-pointer">
                 <p class="absolute group-hover:text-[#ffeb15] transform translate-y-[2.4px] translate-x-[8.7px] font-semibold text-xs scale-75 text-white  transition-all duration-300 ease-in-out"><?php if(isset($_SESSION['id_user']) != null){if(isset($_SESSION['data_keranjang']) != null && ($_SESSION['data_keranjang']) != 0){echo $_SESSION['data_keranjang'];}} ?></p>
                 <a href="pages/cart.php">
+                    <div class="bg-yellow-400 h-2 w-2 rounded-full absolute -top-0.5 -left-0.5 z-50 animate-ping <?php if(isset($_SESSION['data_keranjang']) == null){ echo 'hidden';} ?>"></div>
                     <svg class="scale-115 saturate-0 brightness-110 group-hover:saturate-100 group-hover:brightness-95 transition-all duration-300 ease-in-out" width="30px" height="30px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#f7f700">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
