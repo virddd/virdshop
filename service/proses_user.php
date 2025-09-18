@@ -95,6 +95,7 @@ if (isset($_SESSION['id_user']) != null) {
 
             if (mysqli_num_rows($query_cek) > 0) {
                 $del = mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = jumlah_pesanan - 1, jumlah_harga = jumlah_pesanan * $harga WHERE id_user = $id_user AND id_produk = $id_produk");
+                // $_SESSION["del"] = $del;
                 if($del) {
                     mysqli_query($db, "DELETE FROM data_keranjang WHERE jumlah_pesanan < 1");
                 }
@@ -148,10 +149,12 @@ if (isset($_SESSION['id_user']) != null) {
             // }
 
             $query_cek = mysqli_query($db, "SELECT jumlah_pesanan FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
-
+            $query_cek_harga = mysqli_query($db, "SELECT harga_produk FROM data_produk WHERE id_produk = $id_produk");
+            $cek_harga = mysqli_fetch_assoc($query_cek_harga);
+            $harga = $cek_harga['harga_produk'];
 
             if (mysqli_num_rows($query_cek) > 0) {
-                mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = $keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
+                mysqli_query($db, "UPDATE data_keranjang SET jumlah_pesanan = $keranjang, jumlah_harga = jumlah_pesanan * $harga WHERE id_user = $id_user AND id_produk = $id_produk");
             } else if ($query_cek && mysqli_affected_rows($db) > 0){
                 //$hapus = mysqli_query($db, "DELETE FROM data_keranjang WHERE id_user = $id_user AND id_produk = $id_produk");
                 echo "success";

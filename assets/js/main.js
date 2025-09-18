@@ -185,7 +185,13 @@ function setKuantitas(produk_id) {
 
     //var qty = parseInt(kuantitas);
     if (isNaN(qty) || qty < 1) {
-        alert('Kuantitas tidak valid');
+        // alert('Kuantitas tidak valid');
+        swalWithTailwindButtons.fire({
+        title: "input tidak valid!",
+        icon: "warning",
+        background: "#fff5e8",
+        confirmButtonText: "Baiklah"
+        });
         document.getElementById('kuantitas' + produk_id).focus();
         return false;
     }
