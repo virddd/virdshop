@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Store</title>
+    <title>Pembayaran</title>
     <link rel="stylesheet" href="src/style.css">
     <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -41,7 +41,11 @@ session_start();
                     </label>
                     <label for="email_user">
                         <p class="text-black font-semibold text-xs text-center px-2 w-12 py-[3px] rounded-t-lg bg-[#ece0d1]">Email</p>
-                        <input class="shadow-[0_-2px_3px_rgba(0,0,0,0.3)] bg-[#fff5e8] px-4 py-2 rounded-bl-2xl rounded-r-2xl w-3xs sm:w-sm md:w-2xs lg:w-xs xl:w-sm transition-all duration-300 ease-in-out" required type="email" name="email" id="email_user" placeholder="Email">
+                        <input class="shadow-[0_-2px_3px_rgba(0,0,0,0.3)] bg-[#fff5e8] px-4 py-2 rounded-bl-2xl rounded-r-2xl w-3xs sm:w-sm md:w-2xs lg:w-xs xl:w-sm transition-all duration-300 ease-in-out" required type="email" name="email" id="email_user" placeholder="Opsional">
+                    </label>
+                    <label for="telepon">
+                        <p class="text-black font-semibold text-xs text-center px-2 w-20 py-[3px] rounded-t-lg bg-[#ece0d1]">No Telepon</p>
+                        <input class="shadow-[0_-2px_3px_rgba(0,0,0,0.3)] bg-[#fff5e8] px-4 py-2 rounded-bl-2xl rounded-r-2xl w-3xs sm:w-sm md:w-2xs lg:w-xs xl:w-sm transition-all duration-300 ease-in-out" required type="number" name="telepon" id="telepon" placeholder="08123456789">
                     </label>
                     <label for="alamat_user">
                         <p class="text-black font-semibold text-xs text-center px-2 w-28 py-[3px] rounded-t-lg bg-[#ece0d1]">Alamat Penerima</p>
@@ -122,11 +126,26 @@ session_start();
                 </tfoot>
             </div>
 
-            <div>
+        </main>
 
+            <div>
+                <div class="w-[90vw] bg-[#f64301] px-4 mt-10 py-8 rounded-lg shadow-md/30 text-sm sm:text-sm md:text-md lg:text-md xl:text-md">
+                    <label for="metode_pembayaran" class="">
+                        <p class="mx-4 text-black font-semibold text-xs text-center px-2 w-33 py-[3px] rounded-t-lg bg-[#ece0d1]">Metode Pembayaran</p>
+                        <!-- <input class="" required type="text" name="nama_lengkap" id="nama_lengkap_user" placeholder="Nama lengkap" value="<?php if(isset($_SESSION['id_user'])){echo $_SESSION['nama_lengkap_user'];}?>"> -->
+                        <select name="metode_pembayaran" id="metode_pembayaran" class="mx-4 cursor-pointer shadow-[0_-2px_3px_rgba(0,0,0,0.3)] bg-[#fff5e8] px-4 py-2 rounded-bl-2xl rounded-r-2xl w-3xs sm:w-sm md:w-2xs lg:w-xs xl:w-sm transition-all duration-300 ease-in-out capitalize">
+                            <option value="">Qris</option>
+                            <option value="">Dana</option>
+                            <option value="">Gopay</option>
+                            <option value="">ShopeePay</option>
+                            <option value="">Alfamart</option>
+                            <option value="">Indomaret</option>
+                            <option value="">Bayar ditempat</option>
+                        </select>
+                    </label>
+                </div>
             </div>
 
-        </main>
         <!-- <?php include '../src/copyright.html'; ?> -->
 
     <footer class="w-full bottom-0 py-2 fixed shadow-lg/20 z-10 bg-[#6b0101]">
@@ -134,10 +153,26 @@ session_start();
             <h1 class="text-[#fff5e8] font-bold text-lg">Pembayaran</h1>
             <div class="flex flex-row gap-4">
                 <p class="transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg"><?php if(isset($_SESSION['id_user']) != null){ $id_user = $_SESSION['id_user']; $harga_jumlah = mysqli_query($db, "SELECT SUM(jumlah_harga) AS total_harga FROM data_keranjang WHERE id_user = $id_user"); $jumlah_baris = mysqli_fetch_assoc($harga_jumlah); $harga_total = $jumlah_baris['total_harga'] ?? 0; echo "Rp " . number_format(($harga_total), 0, ',', '.');}else{echo 'Rp. 0';}?></p>
-                <a onclick="contoh()" class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
+                <button onclick="maintenance()" class="cursor-pointer bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg">Bayar</button>
             </div>
         </div>
     </footer>
-        
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ajax.js"></script>
+    <script>
+        function maintenance() {
+        console.log('berhasil')
+        swalWithTailwindButtons.fire({
+        title: "Info!!",
+        text: "Server sedang maintenance, kembali lagi nanti!",
+        icon: "question",
+        background: "#fff5e8",
+        confirmButtonText: "Baiklah",
+        }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'cart.php'
+        }})
+};
+    </script>
     </body>
     </html>

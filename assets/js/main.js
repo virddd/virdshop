@@ -1,3 +1,4 @@
+
 const swalWithTailwindButtons = Swal.mixin({
         customClass: {
             popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
@@ -7,155 +8,9 @@ const swalWithTailwindButtons = Swal.mixin({
         buttonsStyling: false
     });
 
-
-function tambahKeKeranjang(idProduk) {
-    var harga = document.getElementById('harga_' + idProduk).value;
-
-    console.log('ID Produk:', idProduk);
-    console.log('Harga:', harga);
-
-    // Validasi harga
-    if (!harga || isNaN(harga) || parseFloat(harga) <= 0) {
-        alert('Harga tidak valid');
-        return false;
-    }
-
-    // Gunakan FormData (sama seperti setKuantitas)
-    var formData = new FormData();
-    formData.append('id_produk', idProduk);
-    formData.append('harga', harga);
-    formData.append('action', 'add_cart');
-
-    // Debug FormData
-    console.log('FormData contents:');
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
-    }
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "service/proses_user.php", true);
-    // JANGAN set Content-Type header untuk FormData, biarkan browser yang set otomatis
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            console.log('Response:', xhr.responseText);
-
-            if (xhr.status === 200) {
-                if (xhr.responseText.trim() === 'success') {
-                    alert('Produk berhasil ditambahkan ke keranjang');
-                    location.reload();
-                } else {
-                    //alert('Gagal: ' + xhr.responseText);
-                } location.reload();
-            } else {
-                alert('HTTP Error: ' + xhr.status);
-            }//location.reload();
-        }//location.reload();
-    };
-
-    xhr.send(formData);
-    return false;
-};
+    
 
 
-function tambah1(idProduk) {
-    var harga = document.getElementById('harga_' + idProduk).value;
-
-    console.log('ID Produk:', idProduk);
-    console.log('Harga:', harga);
-
-    // Validasi harga
-    if (!harga || isNaN(harga) || parseFloat(harga) <= 0) {
-        alert('Harga tidak valid');
-        return false;
-    }
-
-    // Gunakan FormData (sama seperti setKuantitas)
-    var formData = new FormData();
-    formData.append('id_produk', idProduk);
-    formData.append('harga', harga);
-    formData.append('action', 'add_cart');
-
-    // Debug FormData
-    console.log('FormData contents:');
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
-    }
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../service/proses_user.php", true);
-    // JANGAN set Content-Type header untuk FormData, biarkan browser yang set otomatis
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            console.log('Response:', xhr.responseText);
-
-            if (xhr.status === 200) {
-                if (xhr.responseText.trim() === 'success') {
-                    //alert('Kuantitas berhasil ditambahkan');
-                    location.reload();
-                } else {
-                    //alert('Gagal: ' + xhr.responseText);
-                } location.reload();
-            } else {
-                alert('HTTP Error: ' + xhr.status);
-            }//location.reload();
-        }//location.reload();
-    };
-
-    xhr.send(formData);
-    return false;
-};
-
-
-function hapus1(idProduk) {
-    var harga = document.getElementById('harga_' + idProduk).value;
-
-    console.log('ID Produk:', idProduk);
-    console.log('Harga:', harga);
-
-    // Validasi harga
-    if (!harga || isNaN(harga) || parseFloat(harga) <= 0) {
-        alert('Harga tidak valid');
-        return false;
-    }
-
-    // Gunakan FormData (sama seperti setKuantitas)
-    var formData = new FormData();
-    formData.append('id_produk', idProduk);
-    formData.append('harga', harga);
-    formData.append('action', 'hapus');
-
-    // Debug FormData
-    console.log('FormData contents:');
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
-    }
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../service/proses_user.php", true);
-    // JANGAN set Content-Type header untuk FormData, biarkan browser yang set otomatis
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            console.log('Response:', xhr.responseText);
-
-            if (xhr.status === 200) {
-                if (xhr.responseText.trim() === 'success') {
-                    //alert('Kuantitas berhasil dikurangi');
-                    location.reload();
-                } else {
-                    //alert('Gagal: ' + xhr.responseText);
-                } location.reload();
-            } else {
-                alert('HTTP Error: ' + xhr.status);
-            }//location.reload();
-        }//location.reload();
-    };
-
-    xhr.send(formData);
-    return false;
-};
 
 
 function handleEnter(event, produk_id) {
@@ -231,7 +86,6 @@ function setKuantitas(produk_id) {
 
 
 function harusLogin() {
-    //alert('Harap login dahulu');
     swalWithTailwindButtons.fire({
         title: "Login dibutuhkan",
         //text: "Kamu mau hapus produk ini?",
@@ -243,6 +97,53 @@ function harusLogin() {
             window.location.href = 'pages/masuk.php'
         }})
 };
+
+
+function hapusAkun(idUser) {
+
+    swalWithTailwindButtons.fire({
+        title: "Apakah kamu yakin?",
+        text: "Kamu mau hapus produk ini dari daftar produk?",
+        icon: "warning",
+        background: "#fff5e8",
+        showCancelButton: true,
+        confirmButtonText: "Ya, hapus!",
+        cancelButtonText: "Batal!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var xhr = new XMLHttpRequest(); xhr.open("POST", "../service/proses.php", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log('akun berhasil dihapus dari database');
+                    } else {
+                        console.log('akun gagal dihapus dari database');
+                    }
+                };
+            };
+            xhr.send("id_user=" + idUser + "&action=hapus_akun");
+
+            swalWithTailwindButtons.fire({
+                background: "#fff5e8",
+                title: "Terhapus!",
+                text: "Akun ini berhasil dihapus",
+                icon: "success"
+            }).then(() =>
+                location.reload()
+            )
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithTailwindButtons.fire({
+                background: "#fff5e8",
+                title: "Dibatalkan",
+                text: "Akun ini batal dihapus",
+                icon: "error"
+            });
+            return false;
+        }
+    });
+}
 
 
 function hapusKeranjang(idProduk) {
@@ -340,24 +241,6 @@ function hapus(idProduk) {
 
 
 
-
-// document.getElementById('edit_produk').addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     Swal.fire({
-//         title: "Do you want to save the changes?",
-//         showDenyButton: true,
-//         showCancelButton: true,
-//         confirmButtonText: "Save",
-//         denyButtonText: `Don't save`
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             Swal.fire("Saved!", "", "success").then(() =>
-//                 this.submit());
-//         } else if (result.isDenied) {
-//             Swal.fire("Changes are not saved", "", "info");
-//         }
-//     });
-// })
 
 function logout() {
     // console.log('test');

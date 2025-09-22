@@ -76,8 +76,77 @@ if (isset($_POST['aksi'])) {
         } else {
             echo mysqli_error($db);
         }
+
+    } else if ($_POST['aksi'] == 'add_ui') {
+        $nama_event = $_POST['nama_event'];
+        $gambar_ui = $_FILES['gambar_ui']['name'];
+
+        $dir = '../assets/img/ui/';
+        $tmp_file = $_FILES['gambar_ui']['tmp_name'];
+        move_uploaded_file($tmp_file, $dir . $gambar_ui);
+
+        $query = "INSERT INTO data_ui (nama_event, gambar_ui) VALUES ('$nama_event', '$gambar_ui')";
+        $sql = mysqli_query($db, $query);
+
+        if ($sql) {
+            header('location: ../pages/admin.php?from=add_ui');
+        } else {
+            echo mysqli_error($db);
+        }
+
+    } else if ($_POST['aksi'] == 'edit_ui') {
+
+        $id_ui = $_POST['id_ui'];
+        $nama_event = $_POST['nama_event'];
+        $gambar_ui = $_FILES['gambar_ui']['name'];
+        
+        $query = "UPDATE data_ui SET nama_event = '$nama_event' WHERE id_ui = $id_ui";
+        $sql = mysqli_query($db, $query);
+
+        $query_show = "SELECT * FROM data_ui WHERE id_ui = $id_ui";
+        $sql_show = mysqli_query($db, $query_show);
+        $result = mysqli_fetch_assoc($sql_show);
+
+        if ($_FILES['gambar_ui']['name'] == '') {
+            $gambar_ui = $result['gambar_ui'];
+        } else {
+            $gambar = $_FILES['gambar_ui']['name'];
+            $result2 = $result['gambar_ui'];
+            unlink('../assets/img/ui/' . $result2);
+            $dir = '../assets/img/ui/';
+            $tmp_file = $_FILES['gambar_ui']['tmp_name'];
+            move_uploaded_file($tmp_file, $dir . $gambar);
+
+            $sql = mysqli_query($db, "UPDATE data_ui SET nama_event = '$nama_event', gambar_ui = '$gambar' WHERE id_ui = $id_ui");
+
+            if ($sql) {
+                header('location: ../pages/admin.php?from=edit_ui');
+            } else {
+                echo mysqli_error($db);
+            }
+        }
+    } else if ($_POST['aksi'] == 'hapus_ui') {
+        $id_ui = $_POST['id_ui'];
+        $gambar_ui = $_POST['gambar_ui'];
+
+        // var_dump($_POST);
+        // die();
+
+        $unlink = unlink("../assets/img/ui/" . $gambar_ui);
+
+        if($unlink){
+            
+            $query = "DELETE FROM data_ui WHERE id_ui = $id_ui";
+            $sql = mysqli_query($db, $query);
+            
+            if ($sql) {
+                header('location: ../pages/admin.php?from=hapus_ui');
+            } else {
+                echo mysqli_error($db);
+            }
+        }
+
     }
-}
 
 if (isset($_POST['action'])) {
     if ($_POST['action'] == 'hapus') {
@@ -92,16 +161,15 @@ if (isset($_POST['action'])) {
     $query = "DELETE FROM data_produk WHERE id_produk = $id_produk";
     mysqli_query($db, $query2);
     mysqli_query($db, $query);
+    }
+    
+} else if (isset($_POST['action'])) {
+    if ($_POST['action'] == 'hapus_akun') {
+        $id_user = $_POST['id_user'];
 
-    // header('location: ../pages/admin.php');
-
-    /*if ($sql) {
-        echo "<script>alert('Berhasil menghapus produk!')</script>";
-        header('location: ../pages/admin.php');
-    } else {
-        echo mysqli_error($db);
-    }*/
+        $query = "DELETE FROM data_user WHERE id_user = $id_user";
+        $sql = mysqli_query($db, $query);
+    }
 }}
-
 
 ?>

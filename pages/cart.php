@@ -9,9 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Store</title>
+    <title>Keranjang</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon"> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -102,7 +101,7 @@
                             </div>
                             <p class="text-xs sm:text-sm md:text-md lg:text-lg xl:text-lg"><?php echo $jumlah_harga ?></p>
                         </div>
-                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" onclick="return yakin()" class="">
+                        <button onclick="hapusKeranjang(<?php echo $id_produk ?>)" class="">
                             <svg class="transform scale-60 sm:scale-70 md:scale-80 lg:scale-90 xl:scale-90 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -128,30 +127,111 @@
             <h1 class="text-[#fff5e8] font-bold text-lg">Pembayaran</h1>
             <div class="flex flex-row gap-4">
                 <p class="transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg"><?php if(isset($_SESSION['id_user']) != null){ $id_user = $_SESSION['id_user']; $harga_jumlah = mysqli_query($db, "SELECT SUM(jumlah_harga) AS total_harga FROM data_keranjang WHERE id_user = $id_user"); $jumlah_baris = mysqli_fetch_assoc($harga_jumlah); $harga_total = $jumlah_baris['total_harga'] ?? 0; echo "Rp " . number_format(($harga_total), 0, ',', '.');}else{echo 'Rp. 0';}?></p>
-                <a onclick="contoh()" class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Checkout</a>
+                <a onclick="contoh()" class="bg-[#f64301] hover:bg-[#da3b01] focus:bg-[#da3b01] active:bg-[#da3b01] transition-all duration-300 ease-in-out shadow-md/50 text-white px-4 py-1 font-semibold rounded-xl text-lg" href="payment.php">Pembayaran</a>
             </div>
         </div>
     </footer>
+</body>
+        <script src="../assets/js/ajax.js"></script>
         <script src="../assets/js/main.js"></script>
         <script>
-            function yakin(){
-                function simpan() {
-    Swal.fire({
-        title: "Do you want to save the changes?",
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Save",
-        denyButtonText: `Don't save`
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire("Saved!", "", "success");
-        } else if (result.isDenied) {
-            Swal.fire("Changes are not saved", "", "info");
-            return false;
-        }
-    });
-}
-            }
+            function tambah1(idProduk) {
+    var harga = document.getElementById('harga_' + idProduk).value;
+
+    console.log('ID Produk:', idProduk);
+    console.log('Harga:', harga);
+
+    // Validasi harga
+    if (!harga || isNaN(harga) || parseFloat(harga) <= 0) {
+        alert('Harga tidak valid');
+        return false;
+    }
+
+    // Gunakan FormData (sama seperti setKuantitas)
+    var formData = new FormData();
+    formData.append('id_produk', idProduk);
+    formData.append('harga', harga);
+    formData.append('action', 'add_cart');
+
+    // Debug FormData
+    console.log('FormData contents:');
+    for (let pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../service/proses_user.php", true);
+    // JANGAN set Content-Type header untuk FormData, biarkan browser yang set otomatis
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log('Response:', xhr.responseText);
+
+            if (xhr.status === 200) {
+                if (xhr.responseText.trim() === 'success') {
+                    //alert('Kuantitas berhasil ditambahkan');
+                    location.reload();
+                } else {
+                    //alert('Gagal: ' + xhr.responseText);
+                } location.reload();
+            } else {
+                alert('HTTP Error: ' + xhr.status);
+            }//location.reload();
+        }//location.reload();
+    };
+
+    xhr.send(formData);
+    return false;
+};
+
+
+function hapus1(idProduk) {
+    var harga = document.getElementById('harga_' + idProduk).value;
+
+    console.log('ID Produk:', idProduk);
+    console.log('Harga:', harga);
+
+    // Validasi harga
+    if (!harga || isNaN(harga) || parseFloat(harga) <= 0) {
+        alert('Harga tidak valid');
+        return false;
+    }
+
+    // Gunakan FormData (sama seperti setKuantitas)
+    var formData = new FormData();
+    formData.append('id_produk', idProduk);
+    formData.append('harga', harga);
+    formData.append('action', 'hapus');
+
+    // Debug FormData
+    console.log('FormData contents:');
+    for (let pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../service/proses_user.php", true);
+    // JANGAN set Content-Type header untuk FormData, biarkan browser yang set otomatis
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            console.log('Response:', xhr.responseText);
+
+            if (xhr.status === 200) {
+                if (xhr.responseText.trim() === 'success') {
+                    //alert('Kuantitas berhasil dikurangi');
+                    location.reload();
+                } else {
+                    //alert('Gagal: ' + xhr.responseText);
+                } location.reload();
+            } else {
+                alert('HTTP Error: ' + xhr.status);
+            }//location.reload();
+        }//location.reload();
+    };
+
+    xhr.send(formData);
+    return false;
+};
         </script>
-        </body>
 </html>

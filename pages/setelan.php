@@ -7,5 +7,7 @@
 </head>
 <body style="background-color: black;">
     <img style="position: absolute; height: 100vh; width: 100%; left: -60px; top: -10;" src="../assets/img/ui/OIP.webp" alt="">
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ajax.js"></script>
 </body>
 </html>

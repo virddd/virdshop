@@ -29,6 +29,9 @@ if (isset($_POST["akun"])) {
             $_SESSION['alamat_user'] = $result['alamat_user'];
             $_SESSION['tahun_lahir_user'] = $result['tahun_lahir_user'];
             $_SESSION['pass_user'] = $result['pass_user'];
+            $date = date('Y-m-d H:i:s');
+            $id_user = $_SESSION['id_user'];
+            mysqli_query($db,'UPDATE data_user SET is_online = 1, riwayat = "$date" WHERE id_user = $id_user ');
 
             if ($result['id_user'] == '1') {
                 header('location: ../pages/admin.php?from=admin');
@@ -40,6 +43,9 @@ if (isset($_POST["akun"])) {
             header("location: ../pages/masuk.php");
         }
     } else if ($_POST["action"] == "keluar") {
+        $date = date('Y-m-d H:i:s');
+        $id_user = $_SESSION['id_user'];
+        mysqli_query($db,'UPDATE data_user SET is_online = 0, riwayat = "$date" WHERE id_user = $id_user ');
         session_destroy();
     }
 }
