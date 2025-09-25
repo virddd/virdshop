@@ -1,6 +1,7 @@
 <?php
 include "../service/database.php";
 session_start();    
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ session_start();
         confirmButtonText: "Baiklah",
         }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = '../index.php'
+            window.location.href = '<?php if(($_SESSION['id_user'])== 1){ echo '../pages/admin.php';} else {echo '../index.php';} ?>'
         }})
         };
     </script>

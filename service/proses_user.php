@@ -45,6 +45,8 @@ if (isset($_POST["akun"])) {
                 echo "<script>alert('Nama akun atau kata sandi salah')</script>";
                 header("location: ../pages/masuk.php");
             }
+        } else {
+            header('location: ../pages/masuk.php?from=not-found');
         }
     } else if ($_POST["action"] == "keluar") {
         $date = date('Y-m-d H:i:s');

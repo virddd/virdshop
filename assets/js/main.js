@@ -1,15 +1,15 @@
 
 const swalWithTailwindButtons = Swal.mixin({
-        customClass: {
-            popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
-            confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-            cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300",
-            title: "!text-black"
-        },
-        buttonsStyling: false
-    });
+    customClass: {
+        popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
+        confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
+        cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300",
+        title: "!text-black"
+    },
+    buttonsStyling: false
+});
 
-    
+
 
 
 
@@ -43,10 +43,10 @@ function setKuantitas(produk_id) {
     if (isNaN(qty) || qty < 1) {
         // alert('Kuantitas tidak valid');
         swalWithTailwindButtons.fire({
-        title: "input tidak valid!",
-        icon: "warning",
-        background: "#fff5e8",
-        confirmButtonText: "Baiklah"
+            title: "input tidak valid!",
+            icon: "warning",
+            background: "#fff5e8",
+            confirmButtonText: "Baiklah"
         });
         document.getElementById('kuantitas' + produk_id).focus();
         return false;
@@ -96,7 +96,8 @@ function harusLogin() {
     }).then((result) => {
         if (result.isConfirmed) {
             window.location.href = 'pages/masuk.php'
-        }})
+        }
+    })
 };
 
 
@@ -241,11 +242,30 @@ function hapus(idProduk) {
 }
 
 
-
+// const cardInfo = document.getElementById('card-info');
+// const info = document.getElementById('info');
+// cardInfo.addEventListener("click", () => {
+//     info.click(); 
+// });
+const cardMntr = document.getElementById('card-mntr');
+const mntr = document.getElementById('mntr');
+cardMntr.addEventListener("click", () => {
+    mntr.click();
+});
+const cardStln = document.getElementById('card-stln');
+const stln = document.getElementById('stln');
+cardStln.addEventListener("click", () => {
+    stln.click();
+});
+const cardOut = document.getElementById('card-out');
+const out = document.getElementById('out');
+cardOut.addEventListener("click", () => {
+    out.click();
+});
 
 function logout() {
     // console.log('test');
-    
+
     swalWithTailwindButtons.fire({
         title: "Yakin mau keluar?",
         //text: "Kamu mau hapus produk ini?",
@@ -303,7 +323,7 @@ function logout() {
 }
 function logoutUser() {
     // console.log('test');
-    
+
     swalWithTailwindButtons.fire({
         title: "Yakin mau keluar?",
         //text: "Kamu mau hapus produk ini?",
@@ -507,7 +527,7 @@ if (params.get("from") === "halo") {
         }
     })
 } else if (params.get("from") === "edit") {
-    
+
     swalWithTailwindButtons.fire({
         text: "Produk berhasil diedit",
         icon: "success",
@@ -520,7 +540,7 @@ if (params.get("from") === "halo") {
         }
     })
 } else if (params.get("from") === "add") {
-    
+
     swalWithTailwindButtons.fire({
         text: "Produk berhasil ditambahkan",
         icon: "success",
@@ -533,7 +553,7 @@ if (params.get("from") === "halo") {
         }
     })
 } else if (params.get("from") === "admin") {
-    
+
     swalWithTailwindButtons.fire({
         position: "top",
         text: "Welcome Admin!!",
@@ -543,5 +563,14 @@ if (params.get("from") === "halo") {
         timer: 2000
     }).then(() => {
         window.location.href = 'admin.php';
+    })
+} else if (params.get("from") === "not-found") {
+    Swal.fire({
+        position: "top",
+        icon: "danger",
+        title: "Akun atau Password salah",
+        background: "#fff5e8",
+        showConfirmButton: false,
+        timer: 2000
     })
 }

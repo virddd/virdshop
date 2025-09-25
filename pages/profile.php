@@ -20,7 +20,7 @@
 </head>
 <body class="bg-[#fff5e8]">
         <div class="sticky bg-orange-600 w-12 rounded-br-2xl -translate-x-2 transform p-2 top-0 mx-2">
-        <a href="../index.php">
+        <a href="<?php if(($_SESSION['id_user']) == 1){ echo'../pages/monitor.php';} else {echo '../index.php';} ?>">
             <svg class="hover:brightness-80 brightness-100 hover:brightness-80 transition-all duration-300 ease-in-out cursor-pointer" width="28px" height="28px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"/><path fill="#ffffff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"/></svg>
         </a>
     </div>
@@ -56,7 +56,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button onclick="logoutUser(<?php echo $data_user['id_user'] ?>)" class="bg-orange-500 shadow-md/50 hover:shadow-md/20 hover:bg-orange-400 font-semibold transition-all duration-300 text-white px-4 py-1 rounded-lg">Keluar</button>
+            <button <?php if(($_SESSION['id_user']) == 1){echo 'hidden';}?> onclick="logoutUser(<?php echo $data_user['id_user'] ?>)" class="bg-orange-500 shadow-md/50 hover:shadow-md/20 hover:bg-orange-400 font-semibold transition-all duration-300 text-white px-4 py-1 rounded-lg">Keluar</button>
         </div>
     </div>
     <script src="../assets/js/main.js"></script>

@@ -229,10 +229,11 @@ if (isset($_POST['aksi'])) {
             http_response_code(400);
             echo json_encode(['status' => 'error', 'message' => 'Action tidak valid']);
         }
-    } else {
-        http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => 'No action specified']);
-    }
+    } 
+    // else {
+    //     http_response_code(400);
+    //     echo json_encode(['status' => 'error', 'message' => 'No action specified']);
+    // }
     
 if (isset($_POST['action'])) {
     if ($_POST['action'] == 'hapus_akun') {
