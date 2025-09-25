@@ -3,7 +3,8 @@ const swalWithTailwindButtons = Swal.mixin({
         customClass: {
             popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
             confirmButton: "!text-md bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-            cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300"
+            cancelButton: "!text-md bg-neutral-300 py-2 px-4 mx-3 rounded-xl text-black font-semibold shadow-md/50 hover:bg-neutral-400 active:bg-neutral-400 transition-all duration-300",
+            title: "!text-black"
         },
         buttonsStyling: false
     });

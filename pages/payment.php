@@ -163,6 +163,8 @@ session_start();
         function maintenance() {
         console.log('berhasil')
         swalWithTailwindButtons.fire({
+        allowOutsideClick: false,
+        allowEscapeKey: false,
         title: "Info!!",
         text: "Server sedang maintenance, kembali lagi nanti!",
         icon: "question",
