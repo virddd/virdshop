@@ -574,3 +574,16 @@ if (params.get("from") === "halo") {
         timer: 2000
     })
 }
+
+const hover = document.getElementById("svg1");
+const target = document.getElementById("tooltip1");
+
+hover.addEventListener("mouseenter", () => {
+  target.classList.remove("opacity-0");
+  target.classList.add("opacity-100");
+});
+
+hover.addEventListener("mouseleave", () => {
+  target.classList.remove("opacity-100");
+  target.classList.add("opacity-0");
+});

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Store</title>
+    <title>Registrasi</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="shortcut icon" href="/../assets/img/ikon/icon.jpg" type="jpg/x-icon">
+    <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -60,22 +60,6 @@
         <a class="mt-5 text-sm underline text-black hover:text-orange-500 transition-all duration-300 ease-in-out" href="masuk.php">Sudah punya akun? masuk disini!</a>
     </div>
             <?php include '../src/copyright.html'; ?>
-    <script src="../assets/js/main.js">
-        // document.getElementById('daftar').addEventListener('submit', function(e){
-        //     e.preventDefault();
-
-        //     const password = document.getElementById('sandi').value;
-        //     const confirm = document.getElementById('sandi2').value;
-
-        //     if(password !== confirm){
-        //         alert("Konfirmasi password harus sama");
-        //         return false;
-        //     }else if(password.length < 6){
-        //         alert("Password minimal 6 karakter");
-        //         return false;
-        //     } else {
-        //         this.submit();
-        //     }
-        // });
-    </script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ajax.js"></script>
 </body>

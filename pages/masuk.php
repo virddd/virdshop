@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Store</title>
+    <title>Masuk</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -50,6 +50,6 @@
     </div>
             <?php include '../src/copyright.html'; ?>
     <script src="../assets/js/main.js"></script>
-        
+    <script src="../assets/js/ajax.js"></script>        
 
 </body>

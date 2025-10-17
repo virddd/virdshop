@@ -12,7 +12,7 @@ echo '
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>flash Sale & Voucher</title>
         <link rel="stylesheet" href="../assets/css/style.css">
-        <!-- <link rel="shortcut icon" href="img/icon/favicon.ico" type="ico/x-icon"> -->
+        <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
     <body class="bg-[#fff5e8] mt-[40vh] flex flex-col justify-center items-center">
@@ -29,7 +29,8 @@ echo '
                 </h1>
             </div>
         </div>
-
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ajax.js"></script>
     </body>
     </html>
     ';
@@ -63,7 +64,8 @@ echo '
                 </h1>
             </div>
         </div>
-
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ajax.js"></script>
     </body>
     </html>
     ';
@@ -97,7 +99,8 @@ echo '
                 </h1>
             </div>
         </div>
-
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ajax.js"></script>
     </body>
     </html>
     ';

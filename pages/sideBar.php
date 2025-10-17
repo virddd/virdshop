@@ -1,38 +1,4 @@
-<?php
-
-    include '../service/database.php';
-
-    $query = "SELECT * FROM data_produk";
-    $sql = mysqli_query($db, $query);
-    session_start();
-    if(!isset($_SESSION['id_user']) || ($_SESSION['id_user']) != "1" ) { 
-        echo'<script>window.location.href = "../404";</script>';
-    }
-    ?>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-</head>
-<?php if(isset($_SESSION['id_user']) && ($_SESSION['id_user']) == "1" ) { 
-        echo'
-<body class="bg-[#fff5e8]"> ';}
-
-        include "../src/test.html";?>
-
-    <div class="main flex-row flex">
-        <aside class="w-auto h-screen absolute z-50 xl:sticky lg:sticky top-0 bg-[#f64301]">
+<!-- <aside class="w-auto h-screen absolute z-50 xl:sticky lg:sticky top-0 bg-[#f64301]">
             <label for="menu" class="w-auto h-full flex flex-col justify-start m-1">
                 <input type="radio" name="menu" id="menu" class="peer hidden">
                 <svg  class="h-10 w-8 mt-2 z-50 text-white hover:scale-90 ring-10 ring-[#f64301] bg-[#f64301] cursor-pointer hover:text-neutral-200 transition-all duration-300 ease-in-out rounded-lg ml-2 peer-checked:rotate-90" onclick="if(this.previousElementSibling.checked){this.previousElementSibling.checked=false;return false;}" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
@@ -41,7 +7,7 @@
                 <span class="bg-[#fff5e8] top-2 w-[1.5px] h-[calc(100%-16px)] left-14 absolute z-100"></span>
                 <span class="bg-[#fff5e8] top-16 h-[1.5px] w-[calc(100%-15px)] left-2 absolute z-100"></span>
                     <div class="bg-[#f64301] z-50 absolute grid grid-col peer-checked:w-53 transition-all duration-300 ease-in-out h-full w-6 items-start ring-16 ring-[#f64301] mx-3 mt-16 space-5">
-                        <label for="employment" class="flex z-0 pr-2.5 mt-5 h-auto w-8">
+                        <label for="employment" class="flex z-0 pr-2.5 mt-5 h-full">
                             <input type="radio" checked name="tab1" id="employment" class="peer hidden"></input>
                             <svg id="svg1" class="z-50 mt-1 hover:scale-110 peer-checked:hover:scale-120 cursor-pointer peer-checked:scale-130 saturate-0 peer-checked:saturate-100 brightness-200 peer-checked:brightness-100 hover:stroke-neutral-200 transition-all duration-300 ease-in-out size-6 scale-120" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffcc00" d="M192 128v704h384V128H192zm-32-64h448a32 32 0 0 1 32 32v768a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32z"></path><path fill="#ffcc00" d="M256 256h256v64H256v-64zm0 192h256v64H256v-64zm0 192h256v64H256v-64zm384-128h128v64H640v-64zm0 128h128v64H640v-64zM64 832h896v64H64v-64z"></path><path fill="#ffcc00" d="M640 384v448h192V384H640zm-32-64h256a32 32 0 0 1 32 32v512a32 32 0 0 1-32 32H608a32 32 0 0 1-32-32V352a32 32 0 0 1 32-32z"></path></g></svg>
                             <span id="tooltip1" class="font-semibold opacity-0 transition-all duration-300 ease-in-out delay-500 text-xs text-white scale-75 -left-6 mt-6.5 absolute">Kepegawaian</span>
@@ -58,7 +24,7 @@
                                       target.classList.add("opacity-0");
                                     });
                             </script>
-                            <table class="w-full absolute -z-50 opacity-0 peer-checked:opacity-100 peer-checked:blur-100 blur-none transition-all -ml-40 peer-checked:ml-14 duration-300 ease-in-out mx-4 -mt-3 peer-checked:w-40 peer-checked:h-auto overflow-hidden">
+                            <table class="w-full absolute ml-8 -z-50 opacity-0 peer-checked:opacity-100 peer-checked:blur-100 blur-none transition-all -translate-x-40 peer-checked:translate-x-6 duration-300 ease-in-out mx-4 -mt-3 peer-checked:w-40 peer-checked:h-auto overflow-hidden">
                                 <tbody class="w-full divide-y-2 divide-[#ffffff8f]">
                                     <tr class="rounded-2xl cursor-pointer transition-all duration-400 ease-in-out hover:bg-orange-500 bg-[#f64301] w-full h-10 items-center">
                                         <td class="px-2 -pb-1"><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#ffffff" stroke-width="1.6320000000000001"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#ffffff" stroke-width="1.6320000000000001" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.6320000000000001" stroke-linecap="round"></path> </g></svg></td>
@@ -83,7 +49,7 @@
                                 </tbody>
                             </table>
                         </label>
-                        <label for="jurnal" class="absolute top-18 bg-[#f64301] h-full">
+                        <label for="jurnal" class="absolute top-18 bg-[#f64301]  h-full">
                             <input type="radio" name="tab1" id="jurnal" class="peer hidden"></input>
                             <svg id="svg2" class="z-50 hover:scale-120 peer-checked:hover:scale-130 cursor-pointer peer-checked:scale-140 saturate-0 peer-checked:saturate-100 brightness-200 peer-checked:brightness-100 transition-all duration-300 ease-in-out scale-130 size-6" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#ffcc00" stroke-linejoin="round" stroke-width="2" d="M6 5a2 2 0 012-2h16a2 2 0 012 2v22a2 2 0 01-2 2H8a2 2 0 01-2-2V5z"></path> <path stroke="#ffcc00" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9h4M10 16h12M10 20h12M10 24h4"></path> <circle cx="22" cy="9" r="1" fill="#ffcc00"></circle> </g></svg>
                             <span id="tooltip2" class="font-semibold opacity-0 transition-all duration-300 ease-in-out delay-500 text-xs text-white scale-75 -left-1 mt-0.5 absolute">Jurnal</span>
@@ -100,7 +66,7 @@
                                       target2.classList.add("opacity-0");
                                     });
                             </script>
-                            <table class="w-full absolute -z-50 opacity-0 peer-checked:opacity-100 peer-checked:blur-100 blur-none transition-all -ml-40 peer-checked:ml-14 duration-300 ease-in-out mx-4 -mt-22 peer-checked:w-40 peer-checked:h-auto overflow-hidden">
+                            <table class="w-full absolute ml-8 -z-50 opacity-0 peer-checked:opacity-100 peer-checked:blur-100 blur-none transition-all -translate-x-40 peer-checked:translate-x-6 duration-300 ease-in-out mx-4 -mt-22 peer-checked:w-40 peer-checked:h-auto overflow-hidden">
                                 <tbody class="w-full divide-y-2 divide-[#ffffff8f]">
                                     <tr class="rounded-2xl cursor-pointer transition-all duration-400 ease-in-out hover:bg-orange-500 bg-[#f64301] w-full h-10 items-center">
                                         <td class="px-2 -pb-1"><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#ffffff" stroke-width="1.6320000000000001"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#ffffff" stroke-width="1.6320000000000001" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.6320000000000001" stroke-linecap="round"></path> </g></svg></td>
@@ -127,93 +93,4 @@
                         </label>
                     </div>
             </label>
-        </aside>
-        <main class="w-auto bg-[#fff5e8] z-50">
-            <?php if (isset($_SESSION['id_user'])){if ($_SESSION['id_user'] === '1'){ 
-            $ui = mysqli_query($db,'SELECT * FROM data_ui');
-            mysqli_data_seek($ui,2);
-        ?>
-    
-        <div class="bg-[#fff5e8] z-20">
-            <div class="flex group relative justify-center m-4">
-                <img src="../assets/img/ui/banner.png" class="z-40 group-hover:brightness-50 transition-all duration-300 rounded-xl w-[98vw] h-auto"></img>
-                <a href="kelola.php?ganti=1">
-                    <svg class="opacity-0 group-hover:opacity-100  top-1/2 left-1/2 z-40 scale-100 transition-all duration-300 ease-in-out saturate-0 brightness-900 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer absolute bottom-0 right-0" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>                    
-                </a>
-            </div>
-            <div class="flex flex-wrap justify-evenly mb-4">
-            
-            <?php while($data_ui = mysqli_fetch_array($ui)){?>
-            
-                <div class="xl:scale-140 xl:my-4 lg:scale-130 lg:my-3 md:scale-120 md:my-2 sm:scale-110 sm:my-1 z-30 group transition-all duration-300 ease-in-out hover:ring-2 hover:ring-orange-500 bg-[#f64301] w-17 h-17 rounded-full overflow-hidden m-2 relative">
-                    <img class="group-hover:brightness-50" src="../assets/img/ui/<?php echo ($data_ui['gambar_ui']) ?>" alt="">
-                    <a href="kelola.php?ganti=<?php echo ($data_ui['id_ui']) ?>">
-                        <svg class="opacity-0 group-hover:opacity-100 m-2 z-40 scale-40 transition-all duration-300 ease-in-out saturate-0 brightness-900 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer absolute bottom-0 right-0" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>                    
-                    </a>
-                </div>
-            
-            <?php }}}?>
-            
-            </div>
-        </div>
-            
-            <div class="flex flex-wrap gap-2 justify-evenly m-2 ">
-            
-            <?php if (isset($_SESSION['id_user'])){if ($_SESSION['id_user'] === '1'){ while($result = mysqli_fetch_array($sql)){?>
-                <div class="xl:scale-120 xl:mx-5 xl:my-9 lg:scale-110 lg:mx-2 lg:my-7 relative cursor-pointer bg-[#fff5e8] hover:ring-orange-600 hover:ring-[1.5px] transition-all duration-300 ease-in-out group shadow-lg/20 w-[160px] h-[230px] rounded-xl">
-                    <div class="h-[160px] w-full bg-white rounded-xl overflow-hidden">
-                        <img src="../assets/img/product_image/<?php echo($result['gambar_produk']) ?>" alt="">
-                    </div>
-                    <div class="select-none">
-                        <p class="mx-2 mt-2"><?php echo($result['nama_produk']) ?></p>
-                        <p class="absolute bottom-0 m-2"><?php echo "Rp " . number_format(($result['harga_produk']), 0, ',', '.'); ?></p>
-                        <div class="absolute -bottom-2 -right-2 flex ">
-                            <a class="-mr-9" href="kelola.php?ubah=<?php echo($result['id_produk'])?>">
-                                <svg class="scale-35 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer " width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="#06b90f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>                    
-                            </a>
-                            <button onclick="hapus(<?php echo($result['id_produk']) ?>)">
-                                <svg class="scale-45 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer " width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.5001 6H3.5" stroke="#f00000" stroke-width="1.056" stroke-linecap="round"></path> <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#f00000" stroke-width="1.056" stroke-linecap="round"></path> <path d="M9.5 11L10 16" stroke="#f00000" stroke-width="1.056" stroke-linecap="round"></path> <path d="M14.5 11L14 16" stroke="#f00000" stroke-width="1.056" stroke-linecap="round"></path> <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#f00000" stroke-width="1.056"></path> </g></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            <?php }}} ?>
-                
-            </div>
-            <div class="absolute z-100 backdrop-blur-3xl w-[107vw] h-[200vh] scale-125 hue-rotate-210 left-[-100vw] top-0 <?php if(isset($_SESSION['id_user'])){  if($_SESSION['id_user'] == 1){ echo 'hidden'; }} ?>"></div>
-            <?php include '../src/copyright.html';
-            //echo $_SESSION['id_user'];
-            //echo $_SESSION['nama_user'];
-            
-            if(isset($_SESSION['id_user'])){
-                if(($_SESSION['id_user'] != 1) ){
-            echo'<script>
-                    const swalWithTailwindButtons = Swal.mixin({
-                    customClass: {
-                        popup: "!rounded-3xl !text-black !font-semibold !scale-80 shadow-xl/50",
-                        confirmButton: "!text-md !bg-[#f64301] py-2 px-4 mx-3 rounded-xl text-white font-semibold shadow-md/50 hover:bg-[#d43900] active:bg-[#d43900] transition-all duration-300",
-                    },
-                    buttonsStyling: false
-                });
-                
-                Swal.fire({
-                 title: "404 not found!",
-                 text: "halaman tidak ditemukan",
-                 icon: "error",
-                 confirmButtonText: "OK",
-                 allowOutsideClick: false
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                    window.location.href = "masuk.php";
-                    }
-                })
-            </script>';
-        }}
-            ?>
-            </main>
-        </div>
-        <script src="../assets/js/main.js"></script>
-        <script src="../assets/js/ajax.js"></script>
-        
-</body>
-</html>
+        </aside> -->

@@ -17,6 +17,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-[#fff5e8]">
+    <div class="bg-orange-600 sticky w-11 rounded-br-2xl -translate-x-2 transform py-2 pl-2 top-0 mx-2">
+        <a href="admin.php">
+            <svg class="rounded-md focus:bg-orange-700 hover:bg-orange-700 brightness-100  transition-all duration-300 ease-in-out cursor-pointer" width="28px" height="28px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"/><path fill="#ffffff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"/></svg>
+        </a>
+    </div>
     <div class="w-full justify-center items-center flex">
         <table class="rounded-lg xl:mt-16 lg:mt-14 md:mt-12 sm:mt-9 mt-6 shadow-md/50 overflow-hidden bg-orange-50 border-collapse border border-black table-auto w-[90vw] my-5">
             <thead class="border-black">
@@ -48,7 +53,7 @@
                     <td class="py-2 px-4 border-black border-1 text-center"><?php echo $id_user ?></td>
                     <td class="py-2 px-4 border-black border-1 "><?php echo $nama_user ?></td>
                     <td class="py-2 px-4 border-black border-1 text-center"><?php if($status_user == 1){echo 'Online';}else{echo 'Offline';}?></td>
-                    <td class="py-2 px-4 border-black border-1 text-center"><a href="profile.php?id=<?php echo $id_user;?>" class="cursor-pointer bg-orange-600 transition-all duration-300 ease-in-out hover:bg-orange-500 px-4 py-2 rounded-md text-white font-semibold">CEK</a></td>
+                    <td class="py-2 px-4 border-black border-1 text-center"><a href="profile.php?id-profile=<?php echo $id_user;?>" class="cursor-pointer bg-orange-600 transition-all duration-300 ease-in-out hover:bg-orange-500 px-4 py-2 rounded-md text-white font-semibold">CEK</a></td>
                     <td class="py-2 px-4 border-black border-1 ">
                         <button onclick="hapusAkun(<?php echo $id_user ?>)" class="">
                             <svg class="transform scale-50 sm:scale-60 md:scale-70 lg:scale-80 xl:scale-80 transition-all duration-300 ease-in-out saturate-0 brightness-0 focus:brightness-90 hover:saturate-100 hover:brightness-100 cursor-pointer" width="50px" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

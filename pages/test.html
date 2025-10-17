@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../assets/img/icon/favicon.ico" type="ico/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="flex flex-col gap-5 m-5">
+        <label for="opsi1" class="flex gap-5">
+            <input type="radio" name="opsi" id="opsi1" class="peer hidden">
+            <h1 class="bg-white rounded-xl w-5 h-5" onclick="if(this.previousElementSibling.checked){this.previousElementSibling.checked=false;return false;}">opsi</h1>
+            <a href="#" class="transition-all duration-300 ease-in-out -translate-x-30 peer-checked:translate-x-0">menu</a>
+        </label>
+        <label for="opsi2" class="flex gap-5">
+            <input type="radio" name="opsi" id="opsi2" class="peer hidden">
+            <h1 class="bg-white rounded-xl w-5 h-5" onclick="if(this.previousElementSibling.checked){this.previousElementSibling.checked=false;return false;}">opsi</h1>
+            <a href="#" class="transition-all duration-300 ease-in-out -translate-x-30 peer-checked:translate-x-0">menu</a>
+        </label>
+        <label for="opsi3" class="flex gap-5">
+            <input type="radio" name="opsi" id="opsi3" class="peer hidden">
+            <h1 class="bg-white rounded-xl w-5 h-5" onclick="if(this.previousElementSibling.checked){this.previousElementSibling.checked=false;return false;}">opsi</h1>
+            <a href="#" class="transition-all duration-300 ease-in-out -translate-x-30 peer-checked:translate-x-0">menu</a>
+        </label>
+    </div>
+    <div>
+        <table class="m-5">
+            <!-- <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                </tr>
+            </thead> -->
+            <tbody class="m">
+                <tr class="border-y-2 hover:bg-slate-400">
+                    <td class="p-2"><svg class="brightness-0" width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#ffffff" stroke-width="1.6320000000000001"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#ffffff" stroke-width="1.6320000000000001" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#ffffff" stroke-width="1.6320000000000001" stroke-linecap="round"></path> </g></svg></td>
+                    <td class="p-2"><a href="#">admin</a></td>
+                </tr>
+                <tr class="border-y-2 hover:bg-slate-400">
+                    <td class="p-2">0</td>
+                    <td class="p-2"><a href="#">rada panjagn saeutik</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
