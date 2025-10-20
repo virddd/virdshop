@@ -37,7 +37,7 @@ if (isset($_POST["akun"])) {
                 mysqli_query($db, 'UPDATE data_user SET is_online = 1, riwayat = "$date" WHERE id_user = $id_user ');
 
                 if ($result['id_user'] == '1') {
-                    header('location: ../pages/admin.php?from=admin');
+                    header('location: ../pages/admin.php');
                 } else {
                     header('location: ../index.php?from=halo');
                 }
