@@ -27,7 +27,7 @@ session_start();
         confirmButtonText: "Baiklah",
         }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = '<?php if(($_SESSION['id_user'])== 1){ echo '../pages/produk.php';} else {echo '../index.php';} ?>'
+            window.location.href = '<?php if(($_SESSION['id_user'])== 1){ echo '../pages/laporan.php';} else {echo '../index.php';} ?>'
         }})
         };
     </script>

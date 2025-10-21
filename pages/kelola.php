@@ -46,7 +46,7 @@
     
     <?php if(!isset($_GET['ganti'])){
     echo'<div class="grid grid-cols-2 bg-orange-600 w-21 rounded-br-2xl -translate-x-2 transform py-2 pl-2 top-0 mx-2">
-            <a href="admin.php">
+            <a href="produk.php">
                 <svg class="rounded-md focus:bg-orange-700 hover:bg-orange-700 brightness-100  transition-all duration-300 ease-in-out cursor-pointer" width="28px" height="28px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"/><path fill="#ffffff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"/></svg>
             </a>
             <a href="kelola.php?ganti=0">
@@ -101,7 +101,7 @@
                         echo 
         
         '<div class="grid grid-cols-2 bg-orange-600 w-21 rounded-br-2xl -translate-x-2 transform py-2 pl-2 top-0 mx-2">
-            <a href="admin.php">
+            <a href="produk.php">
                 <svg class="rounded-md focus:bg-orange-700 hover:bg-orange-700 brightness-100  transition-all duration-300 ease-in-out cursor-pointer" width="28px" height="28px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"/><path fill="#ffffff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"/></svg>
             </a>
             <a href="kelola.php">

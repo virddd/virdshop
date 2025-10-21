@@ -5,6 +5,8 @@ include 'database.php';
 session_start();
 
 
+
+
 if (isset($_POST["akun"])) {
     if ($_POST["akun"] == "masuk") {
         $nama_user = $_POST["nama_masuk"];
@@ -26,18 +28,25 @@ if (isset($_POST["akun"])) {
             // $result = mysqli_fetch_array($cek);
             if (mysqli_num_rows($cek) !== 0) {
                 $result = mysqli_fetch_assoc($cek);
+
                 $_SESSION['id_user'] = $result['id_user'];
                 $_SESSION['nama_user'] = $result['nama_user'];
                 $_SESSION['nama_lengkap_user'] = $result['nama_lengkap_user'];
                 $_SESSION['alamat_user'] = $result['alamat_user'];
                 $_SESSION['tahun_lahir_user'] = $result['tahun_lahir_user'];
+                $_SESSION['role_user'] = $result['role_user'];
                 $_SESSION['pass_user'] = $result['pass_user'];
+
+                session_write_close();
+
                 $date = date('Y-m-d H:i:s');
                 $id_user = $_SESSION['id_user'];
                 mysqli_query($db, 'UPDATE data_user SET is_online = 1, riwayat = "$date" WHERE id_user = $id_user ');
 
-                if ($result['id_user'] == '1') {
-                    header('location: ../pages/admin.php');
+                if ($result['role_user'] == 'admin') {
+                    header('location: ../pages/laporan.php');
+                } else if ($result['role_user'] == 'staff') {
+                    header('location: ../pages/staff.php');
                 } else {
                     header('location: ../index.php?from=halo');
                 }
@@ -232,7 +241,7 @@ if (isset($_SESSION['id_user']) != null) {
 
                 if ($sql) {
                     echo "<script>alert('Update produk berhasil')</script>";
-                    header('location: ../pages/admin.php');
+                    header('location: ../pages/produk.php');
                 } else {
                     echo mysqli_error($db);
                 }

@@ -32,7 +32,7 @@ if (isset($_POST['aksi'])) {
 
         if ($sql) {
             //echo "<script>alert('Produk berhasil ditambahkan')</script>";
-            header('location: ../pages/admin.php?from=add');
+            header('location: ../pages/produk.php?from=add');
         } else {
             echo mysqli_error($db);
         }
@@ -72,7 +72,7 @@ if (isset($_POST['aksi'])) {
 
         if ($sql) {
             //echo "<script>alert('Update produk berhasil')</script>";
-            header('location: ../pages/admin.php?from=edit');
+            header('location: ../pages/produk.php?from=edit');
         } else {
             echo mysqli_error($db);
         }
@@ -89,7 +89,7 @@ if (isset($_POST['aksi'])) {
         $sql = mysqli_query($db, $query);
 
         if ($sql) {
-            header('location: ../pages/admin.php?from=add_ui');
+            header('location: ../pages/produk.php?from=add_ui');
         } else {
             echo mysqli_error($db);
         }
@@ -120,7 +120,7 @@ if (isset($_POST['aksi'])) {
             $sql = mysqli_query($db, "UPDATE data_ui SET nama_event = '$nama_event', gambar_ui = '$gambar' WHERE id_ui = $id_ui");
 
             if ($sql) {
-                header('location: ../pages/admin.php?from=edit_ui');
+                header('location: ../pages/produk.php?from=edit_ui');
             } else {
                 echo mysqli_error($db);
             }
@@ -140,7 +140,7 @@ if (isset($_POST['aksi'])) {
             $sql = mysqli_query($db, $query);
 
             if ($sql) {
-                header('location: ../pages/admin.php?from=hapus_ui');
+                header('location: ../pages/produk.php?from=hapus_ui');
             } else {
                 echo mysqli_error($db);
             }
